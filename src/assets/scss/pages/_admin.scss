@@ -1,0 +1,672 @@
+.container-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  // 배너
+  .banner {
+    overflow: hidden;
+    width: 100%;
+    min-height: 10rem;
+    padding: 0 !important;
+    border-radius: 0.625rem;
+
+    .banner-inner {
+      display: flex;
+      gap: 1rem;
+
+      .btn {
+        display: flex;
+        align-items: end;
+        flex: 1 0 calc(50% - 1rem);
+        overflow: hidden;
+        height: 10rem;
+        border-radius: 0.625rem;
+
+        &.btn-ex {
+          background: url($--image-url + '/banner/banner-center-ex.png') center no-repeat;
+          background-size: cover;
+        }
+        &.btn-bus {
+          background: url($--image-url + '/banner/banner-center-busreserv.png') center no-repeat;
+          background-size: cover;
+        }
+
+        .txt {
+          width: 100%;
+          height: 2.5rem;
+          font-weight: 700;
+          font-size: 1.125rem;
+          line-height: 2.5rem;
+          color: #fff;
+          background: rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+
+    &-smart {
+      background: url($--image-url + '/banner/banner-home-smart.png') center no-repeat;
+      background-size: cover;
+    }
+    &-bus {
+      background: url($--image-url + '/banner/banner-home-bus.png') center no-repeat;
+      background-size: cover;
+
+      .banner-inner {
+        p {
+          color: #2a41cd;
+        }
+      }
+    }
+  }
+
+  .center-info {
+    .inner {
+      .tx-title {
+        padding: 1rem 0;
+        color: #1e1e1e;
+        font-size: 1.125rem;
+        font-weight: 700;
+        border-bottom: 1px solid #ebebeb;
+      }
+    }
+
+    .center-info-list {
+      > li {
+        padding: 0;
+
+        .btn {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.62rem;
+          width: 100%;
+          padding: 1.25rem 0.62rem;
+          border-bottom: 1px solid #ebebeb;
+          text-align: left;
+          line-height: 1.25rem;
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 0.25rem;
+            height: 0.25rem;
+            border-radius: 100%;
+            background-color: #1e1e1e;
+          }
+
+          .txt {
+            flex: 1;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: #1e1e1e;
+          }
+
+          &.btn-bold {
+            &::before {
+              background-color: #225ed5;
+            }
+            .txt {
+              color: #225ed5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 행정 상세
+.container-admin-sub {
+  padding: 1rem;
+  .brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.75rem;
+    height: 7.75rem;
+    margin: 0 auto 0.62rem;
+    background: url('../images/splash/splash-bg.svg') center no-repeat;
+
+    .logo {
+      display: inline-block;
+      line-height: 1;
+      vertical-align: middle;
+      width: 3.875rem;
+      height: 4.70538rem;
+      font-size: 0;
+      text-indent: -9999px;
+      background: url('../images/splash/splash-logo.svg') center no-repeat;
+    }
+  }
+
+  .article-box {
+    display: flex;
+    flex-direction: column;
+
+    .article-banner {
+      overflow: hidden;
+      position: relative;
+      height: 10.875rem;
+      margin-bottom: 1.25rem;
+      border-radius: 0.625rem;
+
+      .img-view {
+        @include position(absolute, $t: 50%, $l: 50%);
+        margin-left: -50%;
+        margin-top: -50%;
+      }
+    }
+
+    .article-head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.62rem;
+      padding-bottom: 0.88rem;
+      border-bottom: 1px solid #ebebeb;
+
+      .tx-title {
+        display: block;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1e1e1e;
+      }
+      .tx-utils {
+        display: flex;
+        justify-content: space-between;
+
+        > p {
+          font-weight: 500;
+          font-size: 0.75rem;
+          line-height: 1.4rem;
+          color: #878787;
+        }
+      }
+      .tx-address {
+        display: flex;
+        width: 100%;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.4rem;
+        color: #878787;
+      }
+    }
+
+    .article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1.88rem 0;
+
+      h4 {
+        font-weight: 600;
+        font-size: 1rem;
+        color: #1e1e1e;
+        line-height: 1.188rem;
+      }
+      h5 {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #1e1e1e;
+        line-height: 1.188rem;
+      }
+      .tx-sec {
+        display: flex;
+        flex-direction: column;
+        gap: 0.62rem;
+      }
+      .tx-sub {
+        font-size: 0.875rem;
+        line-height: 1.4rem;
+        letter-spacing: 0.01rem;
+        color: #1e1e1e;
+      }
+      .tx-caption {
+        font-weight: 500;
+        font-size: 0.75rem;
+        color: #878787;
+        text-align: right;
+        line-height: 1.4rem;
+        word-break: keep-all;
+      }
+      .tx-sub-sec {
+        display: flex;
+        flex-direction: column;
+        gap: 0.62rem;
+        padding: 0 0.5rem;
+
+        h5 {
+          display: flex;
+          align-items: center;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 0.25rem;
+            height: 0.25rem;
+            margin-right: 0.62rem;
+            border-radius: 100%;
+            background-color: #1e1e1e;
+          }
+        }
+      }
+
+      // 센터 실적 > 주요 수상 현황
+      .block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.62rem;
+        padding: 0 0.5rem;
+
+        & + .block {
+          margin-top: 1rem;
+        }
+
+        .tx-year {
+          display: flex;
+          align-items: center;
+          gap: 0.62rem;
+          font-weight: 700;
+          font-size: 1rem;
+          color: #1e1e1e;
+          strong {
+            flex: 1 0 auto;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px solid #ebebeb;
+          }
+        }
+
+        .year-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.62rem;
+
+          li {
+            display: flex;
+            gap: 0.62rem;
+            font-size: 0.875rem;
+            color: #1e1e1e;
+
+            &::before {
+              content: '• ';
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 행정 > 제공 서비스
+  .admin-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.88rem;
+    padding: 1.88rem 0;
+
+    .block {
+      &-head {
+        display: flex;
+        flex-direction: column;
+        gap: 0.62rem;
+        line-height: 1.4rem;
+        color: #1e1e1e;
+
+        .block-tit {
+          font-weight: 700;
+          font-size: 1rem;
+          color: inherit;
+        }
+
+        .block-def {
+          font-size: 0.875rem;
+          color: inherit;
+        }
+      }
+
+      &-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        line-height: 1.4rem;
+        color: #1e1e1e;
+
+        .block-cont {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          li {
+            font-size: 0.875rem;
+          }
+        }
+
+        .dot-list {
+          padding: 0 0.5rem;
+          li {
+            position: relative;
+            padding-left: 0.75rem;
+            word-break: keep-all;
+
+            &::before {
+              content: '• ';
+              position: absolute;
+              top: 0;
+              left: 0;
+              line-height: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .view-carousel {
+    .tx-caption {
+      font-size: 0.75rem;
+      color: #878787;
+      line-height: 1.4rem;
+      word-break: keep-all;
+    }
+
+    .view-banner-swiper {
+      .swiper-slide {
+        .img-banner {
+          width: 100%;
+          height: auto;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  // 홍보 영상 상세
+  .promotion-view {
+    .view-head {
+      margin-bottom: 1rem;
+
+      .infos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.88rem;
+        line-height: 1.25rem;
+
+        .tx-name {
+          font-weight: 700;
+          font-size: 1rem;
+          color: #1e1e1e;
+          text-align: left;
+        }
+
+        .tx-util {
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #545454;
+
+            &.min::after {
+              content: ' 분전';
+            }
+            &.vnum::before {
+              content: '';
+              display: inline-block;
+              width: 1.25rem;
+              height: 1.25rem;
+              margin-right: 0.25rem;
+              background: url($--image-url + 'icons/ico-vnum.svg') center no-repeat;
+            }
+          }
+        }
+      }
+    }
+    .view-cont {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 0;
+      margin-bottom: 1.88rem;
+      padding-bottom: 56.26%;
+      border-radius: 0.625rem;
+      background-color: #f4f4f4;
+
+      &.active {
+        .video-view {
+          display: block;
+        }
+        .img-view,
+        .dimmed,
+        .btn {
+          display: none;
+        }
+      }
+
+      .video-view,
+      .img-view {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+      .video-view {
+        display: none;
+        &.active {
+          z-index: 20;
+          display: block;
+          background-color: $primary;
+        }
+      }
+      .dimmed {
+        @include position(absolute, 0, 0, 0, 0, 10);
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      .btn-play {
+        @include position(absolute, 0, 0, 0, 0, 10);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .img-item {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.26%;
+        border-radius: 0.625rem;
+        background-color: #f4f4f4;
+
+        .img-view {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .view-foot {
+      display: flex;
+      justify-content: center;
+      padding-top: 1.25rem;
+      border-top: 1px solid #ebebeb;
+
+      .btn {
+        display: inline-block;
+        padding: 0.72rem 1.72rem;
+        border-radius: 3.125rem;
+        font-size: 0.875rem;
+        color: #fff;
+        background-color: #1e1e1e;
+      }
+    }
+  }
+
+  // 오시는 길
+  .location-sub {
+    display: flex;
+    flex-direction: column;
+    gap: 1.88rem;
+    padding: 1.88rem 0;
+
+    // 오시는 길 카카오맵
+    .location-map {
+      overflow: hidden;
+      position: relative;
+      width: calc(100% + 2rem);
+      height: 0;
+      margin: -2.88rem -1rem 0;
+      padding-bottom: 70%;
+      background-color: #f4f4f4;
+    }
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.62rem;
+      margin-top: -0.62rem;
+      padding: 0 0.5rem;
+      line-height: 1.4rem;
+
+      .tx-tit {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1e1e1e;
+      }
+      .tx-addr {
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: #1e1e1e;
+      }
+      .tx-numb {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.875rem;
+          color: #878787;
+        }
+      }
+    }
+
+    // 오는 길 안내
+    .route-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      .route-title {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1e1e1e;
+      }
+
+      .route-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.62rem;
+
+        .route-type {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          .tx-msg {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #1e1e1e;
+          }
+        }
+
+        .tx-desc-list {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          padding: 0.88rem;
+          border-radius: 0.625rem;
+          background-color: #f4f4f4;
+
+          li {
+            display: inline;
+            word-break: break-all;
+            font-size: 0.875rem;
+            line-height: 1.4rem;
+            color: #1e1e1e;
+
+            &:not(:last-child)::after {
+              content: '→';
+              display: inline-block;
+              padding: 0 0.25rem;
+            }
+
+            // &:last-child::after {
+            //   content: ' 하차';
+            // }
+          }
+        }
+        .tx-desc {
+          padding: 0 0.62rem;
+          font-size: 0.875rem;
+          color: #1e1e1e;
+          line-height: 1.4rem;
+        }
+      }
+    }
+
+    // 버스 뱃지
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      flex-grow: 0;
+      height: 1.5rem;
+      padding: 0 0.62rem;
+      border-radius: 6.25rem;
+      border: 1px solid #878787;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #1e1e1e;
+      background-color: #fff;
+
+      &-bus {
+        color: #fff;
+        border-color: #fb4144;
+        background-color: #fb4144;
+      }
+      &-metro1 {
+        color: #fff;
+        border-color: #0052a4;
+        background-color: #0052a4;
+      }
+      &-metro4 {
+        color: #fff;
+        border-color: #00a4e3;
+        background-color: #00a4e3;
+      }
+      &-metro7 {
+        color: #fff;
+        border-color: #747f00;
+        background-color: #747f00;
+      }
+    }
+  }
+}

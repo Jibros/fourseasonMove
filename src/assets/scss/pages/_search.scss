@@ -1,0 +1,421 @@
+$dustColor: ($secondary, $blue, $teal, $orange, $danger);
+$dustName: ('없음', '좋음', '보통', '나쁨', '매우');
+
+.header-map {
+  display: block;
+  @include position(fixed, 0, null, 0, 0, 200);
+  width: 100%;
+  height: $searchKeywordHeight;
+  padding: 1rem 1rem 0;
+  background: none;
+
+  &.bg-sticky {
+    background-color: #fff;
+  }
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 3rem auto;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: 0.625rem;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+
+    .btn {
+      padding: 1rem;
+
+      &-ipt {
+        display: grid;
+        grid-template-columns: auto 3rem;
+        align-items: center;
+        height: 100%;
+        padding: 0;
+        text-align: left;
+
+        .ipt-text {
+          min-width: 0;
+          width: auto;
+          height: 100%;
+          font-weight: 600;
+          font-size: 1rem;
+          color: #1e1e1e;
+
+          &::placeholder {
+            font-weight: 400;
+            color: #878787;
+          }
+        }
+        .ico {
+          margin: 0 auto;
+        }
+      }
+    }
+    .ipt-box {
+      display: flex;
+      align-items: center;
+      flex: auto;
+      flex: 1 0 auto;
+      height: 100%;
+      padding: 0;
+      text-align: left;
+
+      .ipt-text {
+        flex: 1 0 auto;
+        height: 100%;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #1e1e1e;
+
+        &::placeholder {
+          font-weight: 400;
+          color: #878787;
+        }
+      }
+    }
+  }
+}
+
+.contents {
+  .container-map {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1.875rem;
+    padding: 0;
+    margin: 0;
+
+    .map-wrap {
+      @include position(absolute, 0, 0, 0, 0, 1);
+      flex-basis: calc(100vh - $bottomNavHeight);
+      width: 100vw;
+      height: 100vh;
+
+      .kakao-map {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        // 지도 내 ^=abs- 클래스 공통
+        [class^='abs-'] {
+          display: flex;
+          position: absolute;
+          z-index: 2;
+        }
+        .abs-back {
+          flex-direction: column;
+          gap: 0.5rem;
+          width: 2.375rem;
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 2.375rem;
+            border-radius: 0.625rem;
+            border: 1px solid #ebebeb;
+            background-color: #fff;
+          }
+        }
+
+        // 맵 컨트롤 (버튼:레이어표현, 현재위치)
+        .abs-map-control {
+          flex-direction: column;
+          gap: 0.5rem;
+          width: 2.375rem;
+
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 2.375rem;
+            border-radius: 100%;
+            border: 1px solid #ebebeb;
+            background-color: #fff;
+          }
+        }
+
+        // 현재 위치에서 검색
+        .abs-map-update {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease-in-out;
+          transform: translateX(-50%);
+
+          &.active {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .btn {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 0.53rem 1.12rem;
+            border-radius: 3.125rem;
+            border: 1px solid #1e1e1e;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #1e1e1e;
+            background-color: #fff;
+          }
+        }
+
+        // 미세먼지 수치 색상
+        .abs-dust-color {
+          flex-direction: column;
+          gap: 0.5rem;
+          width: 2.375rem;
+          z-index: 3;
+
+          ul {
+            display: block;
+            width: 3rem;
+            padding: 0.62rem;
+            border-radius: 0.625rem;
+            background-color: #fff;
+
+            li {
+              font-size: 0.75rem;
+              color: #000;
+              padding: 0.25rem 0 0.25rem 0.25rem;
+              white-space: nowrap;
+
+              @for $i from 1 to 6 {
+                &.dust-#{$i} {
+                  border-left: 3px solid nth($dustColor, $i);
+
+                  &::after {
+                    content: nth($dustName, $i);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        //
+        .abs-dust-numeric {
+          display: flex;
+          justify-content: center;
+
+          .numeric-inner {
+            display: flex;
+            justify-content: center;
+            gap: 0.31rem;
+            position: relative;
+            width: 6.25rem;
+            height: 3.8375rem;
+            padding: 0.6rem 0.88rem 0.5rem;
+
+            @for $i from 1 to 6 {
+              &.dust-#{$i} {
+                background: url($--image-url + 'map/bg-dust-#{$i}.svg') center no-repeat;
+                background-size: 6.5rem;
+              }
+            }
+
+            hr {
+              width: 1px;
+              height: 1.8125rem;
+              margin-top: 0.3rem;
+              border: 0;
+              background-color: #ebebeb;
+            }
+
+            [class^='dust-'] {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 2.2rem;
+              text-align: center;
+              font-weight: 700;
+              font-size: 1.125rem;
+              line-height: 1.3125rem;
+              letter-spacing: -0.09rem;
+
+              &::after {
+                content: '미세';
+                display: block;
+                font-weight: 600;
+                font-size: 0.75rem;
+                line-height: 0.875rem;
+              }
+
+              @for $i from 1 to 6 {
+                &.dust-num-#{$i} {
+                  color: nth($dustColor, $i);
+                }
+              }
+            }
+
+            .dust-micro::after {
+              content: '미세';
+            }
+            .dust-ultra::after {
+              content: '초미세';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contents {
+  .container-keyword {
+    padding-top: 0;
+
+    .keyword-head {
+      position: sticky;
+      top: 0;
+      z-index: $layout-zindex100;
+      padding-top: 1rem;
+      background-color: #fff;
+
+      .search-form {
+        display: flex;
+        align-items: center;
+        height: 3.125rem;
+        margin-bottom: 0.625rem;
+        border-radius: 0.625rem;
+        border: 1px solid #ebebeb;
+        background: #fff;
+
+        .btn {
+          padding: 1rem;
+
+          &-ipt {
+            display: flex;
+            align-items: center;
+            flex: auto;
+            flex: 1 0 auto;
+            height: 100%;
+            padding: 0;
+            text-align: left;
+
+            .ipt-text {
+              flex: 1 0 auto;
+              height: 100%;
+              font-weight: 600;
+              font-size: 1rem;
+              color: #1e1e1e;
+
+              &::placeholder {
+                font-weight: 400;
+                color: #878787;
+              }
+            }
+            .ico {
+              flex: 0;
+              height: 100%;
+              padding: 1rem 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .search-keyword-util {
+      display: flex;
+      justify-content: space-between;
+      // position: sticky;
+      // top: calc($searchKeywordHeight - 1rem);
+      // z-index: $layout-zindex100;
+      padding-top: 1rem;
+      background-color: #fff;
+      padding: 0.62rem;
+      border-bottom: 1px solid #ebebeb;
+      font-size: 0.875rem;
+      color: #878787;
+    }
+
+    .search-keyword-list {
+      .result-list {
+        ul {
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            border-bottom: 1px solid #ebebeb;
+            gap: 1rem;
+            padding: 0 0.62rem;
+
+            &:first-child {
+              // border-top: 1px solid #ebebeb;
+            }
+
+            .btn {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              gap: 0.31rem;
+              width: 100%;
+              padding: 1.25rem 0;
+              text-align: left;
+
+              .tx-name {
+                font-weight: 700;
+                font-size: 0.875rem;
+                color: #1e1e1e;
+              }
+              .tx-address {
+                font-weight: 500;
+                font-size: 0.75rem;
+                color: #878787;
+              }
+            }
+
+            .tx-cont {
+              flex-shrink: 0;
+              text-align: right;
+
+              .tx-cate,
+              .tx-min {
+                display: block;
+                font-weight: 500;
+                font-size: 0.75rem;
+                color: #878787;
+              }
+              .tx-distance {
+                display: block;
+                margin-top: 0.31rem;
+                font-weight: 500;
+                font-size: 0.75rem;
+                color: #1e1e1e;
+              }
+
+              .btn-remove {
+                display: inline-block;
+                position: relative;
+                right: -1rem;
+                padding: 0.31rem 1rem;
+                .ico {
+                  vertical-align: top;
+                }
+              }
+            }
+
+            &.no-item {
+              justify-content: center;
+              height: calc(100dvh - $headerHeight - 2.5rem);
+              padding: 3rem 0.62rem;
+              border: 0;
+
+              .tx-msg {
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: #878787;
+                line-height: 1.25rem;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

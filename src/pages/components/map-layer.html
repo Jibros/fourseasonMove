@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../../assets/js/include.js"></script>
+  </head>
+  <body data-page-title="카테고리명">
+    <!-- WRAPPER -->
+    <div class="wrapper wrapper-map">
+      <!-- HEADER 맵 검색 -->
+      <!-- <div data-include-path="./layout/header-type-map.html"></div> -->
+      <!-- // HEADER 맵 검색 -->
+
+      <!-- BOTTOM NAVBAR -->
+      <div data-include-path="../layout/navbar.html"></div>
+      <!-- // BOTTOM NAVBAR -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-map">
+          <!-- 지도 : 100% x 100% -->
+          <div class="map-wrap">
+            <div id="kakaomap" class="kakao-map">
+              <div class="abs-back" style="top: 1rem; left: 1rem">
+                <button type="button" class="btn">
+                  <i class="ico ico-chevron-left"></i>
+                </button>
+              </div>
+              <div class="abs-map-control" style="top: 1rem; right: 1rem">
+                <button type="button" class="btn btn-modal" data-modal-target=".modal-map">
+                  <i class="ico ico-map-layer"></i>
+                </button>
+                <button type="button" class="btn">
+                  <i class="ico ico-map-current"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+
+    <!-- BOTTOM SHEET -->
+    <section class="bottomsheet">
+      <div class="bottomsheet-inner">
+        <div class="bottomsheet-content-info">
+          <div class="info-body">
+            <div class="body-inner">
+              <div class="info-detail">
+                <div class="btn">
+                  <div class="tx-cont">
+                    <p class="tx-name">{교통 CCTV명}</p>
+                    <p class="tx-cate">교통 CCTV</p>
+                    <p class="tx-address">설치 주소</p>
+                  </div>
+                  <p class="tx-distance">100m</p>
+                </div>
+
+                <div class="btn-group">
+                  <button type="button" class="btn-text">복사</button>
+                  <button type="button" class="btn-text">카카오맵에서 길찾기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // BOTTOM SHEET -->
+
+    <!-- 모달 : 지도 정보 -->
+    <!-- <div data-include-path="../layout/modalMapLayer.html"></div> -->
+    <!-- 노출 : .show -->
+    <section class="modal modal-map show">
+      <div class="dimmed"></div>
+
+      <div class="modal-inner">
+        <div class="modal-head">
+          <h3 class="tx-title">지도 정보</h3>
+          <button type="button" class="btn btn-modal-close">
+            <i class="ico ico-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="map-type-list">
+            <div class="map-type-group">
+              <label>지도 유형</label>
+
+              <div class="btn-group">
+                <button type="button" class="btn active">
+                  <img src="../../assets/images/map/map-type-1.png" alt="기본" />
+                  <span>기본</span>
+                </button>
+                <button type="button" class="btn">
+                  <img src="../../assets/images/map/map-type-2.png" alt="기본" />
+                  <span>위성</span>
+                </button>
+                <button type="button" class="btn">
+                  <img src="../../assets/images/map/map-type-3.png" alt="기본" />
+                  <span>지형</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="map-type-group">
+              <label>지도 유형</label>
+
+              <div class="btn-group">
+                <button type="button" class="btn">
+                  <img src="../../assets/images/map/map-type-4.png" alt="기본" />
+                  <span>교통 정보</span>
+                </button>
+                <button type="button" class="btn active">
+                  <img src="../../assets/images/map/map-type-5.png" alt="기본" />
+                  <span>등산로</span>
+                </button>
+                <button type="button" class="btn">
+                  <img src="../../assets/images/map/map-type-6.png" alt="기본" />
+                  <span>자전거 도로</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="map-type-group">
+              <label>지도 유형</label>
+              <div class="btn-group">
+                <button type="button" class="btn active">
+                  <img src="../../assets/images/map/map-type-7.png" alt="기본" />
+                  <span>방범 CCTV</span>
+                </button>
+                <button type="button" class="btn">
+                  <img src="../../assets/images/map/map-type-8.png" alt="기본" />
+                  <span>미세먼지</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 카카오맵 js -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a26a049d4bb8586b37ebe378fa8fbc28"></script>
+    <script type="text/javascript" src="../../assets/js/kakaomap.js"></script>
+  </body>
+</html>

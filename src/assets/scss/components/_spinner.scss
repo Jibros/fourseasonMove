@@ -1,0 +1,99 @@
+/* 페이지 스피너 */
+.pageLoader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .dimmed {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 스텝 이동 간 스피너 노출 */
+.char_load {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .dimmed {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.sk-cube-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+
+  .sk-cube {
+    width: 33%;
+    height: 33%;
+    background: #da3196;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  }
+
+  @for $i from 1 through 9 {
+    .sk-cube#{$i} {
+      $delay: if(
+        $i == 7,
+        0s,
+        if($i == 4 or $i == 8, 0.1s, if($i == 1 or $i == 5 or $i == 9, 0.2s, if($i == 2 or $i == 6, 0.3s, 0.4s)))
+      );
+
+      -webkit-animation-delay: $delay;
+      animation-delay: $delay;
+    }
+  }
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}

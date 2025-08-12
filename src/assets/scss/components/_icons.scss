@@ -1,0 +1,423 @@
+@mixin iconVar($wid: 1, $hgt: 1) {
+  display: inline-block;
+  width: $wid + rem;
+  height: $hgt + rem;
+  @content;
+}
+
+.ico {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 0;
+  text-indent: -9999px;
+
+  /* BOTTOM NAV ICON */
+  &-nav-home {
+    @include iconVar($hgt: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-home.svg') center no-repeat;
+    }
+  }
+  &-nav-admin {
+    @include iconVar() {
+      background: url($--image-url + 'icons/ico-nav-admin.svg') center no-repeat;
+    }
+  }
+  &-nav-safety {
+    @include iconVar($hgt: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-safety.svg') center no-repeat;
+    }
+  }
+  &-nav-traffic {
+    @include iconVar($wid: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-traffic.svg') center no-repeat;
+    }
+  }
+  &-nav-env {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-nav-env.svg') center no-repeat;
+    }
+  }
+  &-nav-life {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-nav-life.svg') center no-repeat;
+    }
+  }
+  // NAV ACTIVE
+  &-nav-home.active {
+    @include iconVar($hgt: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-home-active.svg') center no-repeat;
+    }
+  }
+  &-nav-admin.active {
+    @include iconVar() {
+      background: url($--image-url + 'icons/ico-nav-admin-active.svg') center no-repeat;
+    }
+  }
+  &-nav-safety.active {
+    @include iconVar($hgt: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-safety-active.svg') center no-repeat;
+    }
+  }
+  &-nav-traffic.active {
+    @include iconVar($hgt: 1.125) {
+      background: url($--image-url + 'icons/ico-nav-traffic-active.svg') center no-repeat;
+    }
+  }
+  &-nav-env.active {
+    @include iconVar() {
+      background: url($--image-url + 'icons/ico-nav-env-active.svg') center no-repeat;
+    }
+  }
+  &-nav-life.active {
+    @include iconVar() {
+      background: url($--image-url + 'icons/ico-nav-life-active.svg') center no-repeat;
+    }
+  }
+  /* // BOTTOM NAV ICON */
+  &-sos {
+    @include iconVar(1.0625, 1.1875) {
+      background: url($--image-url + 'icons/ico-sos.svg') center no-repeat;
+    }
+  }
+  &-alarm {
+    @include iconVar(1.0625, 1.1875) {
+      background: url($--image-url + 'icons/ico-alarm.svg') center no-repeat;
+    }
+  }
+  &-nav {
+    @include iconVar($hgt: 0.9375) {
+      background: url($--image-url + 'icons/ico-nav.svg') center no-repeat;
+    }
+  }
+  &-bus {
+    @include iconVar(1.125, 1.3125) {
+      background: url($--image-url + 'icons/ico-bus.svg') center no-repeat;
+    }
+  }
+  &-bus-gray {
+    @include iconVar(1.5, 1.5) {
+      background: url($--image-url + 'icons/ico-bus-gray.svg') center no-repeat;
+    }
+  }
+  &-metro-gray {
+    @include iconVar(1.5, 1.5) {
+      background: url($--image-url + 'icons/ico-metro-gray.svg') center no-repeat;
+    }
+  }
+  &-car-gray {
+    @include iconVar(1.5, 1.5) {
+      background: url($--image-url + 'icons/ico-car-gray.svg') center no-repeat;
+    }
+  }
+  &-arrow-left {
+    @include iconVar($hgt: 0.9375) {
+      background: url($--image-url + 'icons/ico-left.svg') center no-repeat;
+    }
+  }
+  &-arrow-right {
+    @include iconVar(1.0625, 0.75) {
+      background: url($--image-url + 'icons/ico-arrow-right.svg') center no-repeat;
+    }
+  }
+  &-chevron-left {
+    @include iconVar() {
+      background: url($--image-url + 'icons/ico-chevron-left.svg') center no-repeat;
+    }
+  }
+  &-chevron-right {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-chevron-right.svg') center no-repeat;
+    }
+  }
+  &-chevron-left-month {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-chevron-left-month.svg') center no-repeat;
+    }
+  }
+  &-chevron-right-month {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-chevron-right-month.svg') center no-repeat;
+    }
+  }
+  &-safe1 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-safe1.svg') center no-repeat;
+    }
+  }
+  &-safe2 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-safe2.svg') center no-repeat;
+    }
+  }
+  &-safe3 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-safe3.svg') center no-repeat;
+    }
+  }
+  &-safe4 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-safe4.svg') center no-repeat;
+    }
+  }
+  &-traffic1 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-traffic1.svg') center no-repeat;
+    }
+  }
+  &-traffic2 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-traffic2.svg') center no-repeat;
+    }
+  }
+  &-traffic3 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-traffic3.svg') center no-repeat;
+    }
+  }
+  &-traffic4 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-traffic4.svg') center no-repeat;
+    }
+  }
+  &-safety-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-safety-mark.svg') center no-repeat;
+    }
+  }
+  &-traffic-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-traffic-mark.svg') center no-repeat;
+    }
+  }
+  &-env-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-env-mark.svg') center no-repeat;
+    }
+  }
+  &-env-mark2 {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-env-mark2.svg') center no-repeat;
+    }
+  }
+  &-walk-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-walk-mark.svg') center no-repeat;
+    }
+  }
+  &-hike-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-hike-mark.svg') center no-repeat;
+    }
+  }
+  &-bike-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-bike-mark.svg') center no-repeat;
+    }
+  }
+  &-env1 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-env1.svg') center no-repeat;
+    }
+  }
+  &-env2 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-env2.svg') center no-repeat;
+    }
+  }
+  &-env3 {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-env3.svg') center no-repeat;
+    }
+  }
+  &-safety-bg {
+    @include iconVar(9.0625, 3.39525) {
+      background: url($--image-url + 'icons/ico-safety-bg.svg') center no-repeat;
+    }
+  }
+  &-traffic-bg {
+    @include iconVar(6.88344, 3.18638) {
+      background: url($--image-url + 'icons/ico-traffic-bg.svg') center no-repeat;
+    }
+  }
+  &-env-bg {
+    @include iconVar(9.07513, 3.81263) {
+      background: url($--image-url + 'icons/ico-env-bg.svg') center no-repeat;
+    }
+  }
+  &-env-bg2 {
+    @include iconVar(9.0625, 3.43756) {
+      background: url($--image-url + 'icons/ico-env-bg2.svg') center no-repeat;
+    }
+  }
+  &-walk-bg {
+    @include iconVar(9.07513, 3.81263) {
+      background: url($--image-url + 'icons/ico-walk-bg.svg') center no-repeat;
+    }
+  }
+  &-hike-bg {
+    @include iconVar(9.07513, 3.81263) {
+      background: url($--image-url + 'icons/ico-hike-bg.svg') center no-repeat;
+    }
+  }
+  &-bike-bg {
+    @include iconVar(9.07513, 3.81263) {
+      background: url($--image-url + 'icons/ico-bike-bg.svg') center no-repeat;
+    }
+  }
+  &-life-mark {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-life-mark.svg') center no-repeat;
+    }
+  }
+  &-life2 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life2.svg') center no-repeat;
+    }
+  }
+  &-life3 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life3.svg') center no-repeat;
+    }
+  }
+  &-life4 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life4.svg') center no-repeat;
+    }
+  }
+  &-life5 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life5.svg') center no-repeat;
+    }
+  }
+  &-life6 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life6.svg') center no-repeat;
+    }
+  }
+  &-life7 {
+    @include iconVar(2.8, 2.8) {
+      background: url($--image-url + 'icons/ico-life7.svg') center no-repeat;
+    }
+  }
+  &-life-bg {
+    @include iconVar(9.0625, 3.8125) {
+      background: url($--image-url + 'icons/ico-life-bg.svg') center no-repeat;
+    }
+  }
+  &-file-attach {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-file-attach.svg') center no-repeat;
+    }
+  }
+  &-file-download {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-file-download.svg') center no-repeat;
+    }
+  }
+  &-cctv {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-cctv.svg') center no-repeat;
+    }
+  }
+  &-weather-warning {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-weather-warning.svg') center no-repeat;
+    }
+  }
+  &-x {
+    @include iconVar(1.5, 1.5) {
+      background: url($--image-url + 'icons/ico-x.svg') center no-repeat;
+    }
+  }
+  &-x-sm {
+    @include iconVar(0.875, 0.875) {
+      background: url($--image-url + 'icons/ico-x-sm.svg') center no-repeat;
+    }
+  }
+  &-search-action {
+    @include iconVar(1.3, 1.2) {
+      background: url($--image-url + 'icons/ico-search-action.svg') center no-repeat;
+    }
+  }
+  &-map-layer {
+    @include iconVar(1.375, 1.1) {
+      background: url($--image-url + 'icons/ico-map-layer.svg') center no-repeat;
+    }
+  }
+  &-map-current {
+    @include iconVar(2.375, 2.375) {
+      background: url($--image-url + 'icons/ico-map-current.svg') center no-repeat;
+    }
+  }
+  &-play {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-play.svg') center no-repeat;
+    }
+  }
+  &-tel {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-tel.svg') center no-repeat;
+    }
+  }
+  &-fax {
+    @include iconVar(1.25, 1.25) {
+      background: url($--image-url + 'icons/ico-fax.svg') center no-repeat;
+    }
+  }
+  &-notice {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-notice.svg') center no-repeat;
+    }
+  }
+  &-article {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-article.svg') center no-repeat;
+    }
+  }
+  &-promotion {
+    @include iconVar(1.75, 1.75) {
+      background: url($--image-url + 'icons/ico-promotion.svg') center no-repeat;
+    }
+  }
+  &-bottomsheet-handle {
+    @include iconVar(2.375, 2.375) {
+      background: url($--image-url + 'icons/ico-bottomsheet-handle.svg') center no-repeat;
+    }
+  }
+  &-marker {
+    @include iconVar(0.72581, 0.9375) {
+      background: url($--image-url + 'icons/ico-marker.svg') center no-repeat;
+    }
+  }
+  &-calendar {
+    @include iconVar(1.125, 1.125) {
+      background: url($--image-url + 'icons/ico-calendar.svg') center no-repeat;
+    }
+  }
+  &-walk-distance {
+    @include iconVar(1.875, 1.875) {
+      background: url($--image-url + 'icons/ico-walk-distance.svg') center no-repeat;
+    }
+  }
+  &-walk-clock {
+    @include iconVar(1.875, 1.875) {
+      background: url($--image-url + 'icons/ico-walk-clock.svg') center no-repeat;
+    }
+  }
+  &-walk-num {
+    @include iconVar(1.875, 1.875) {
+      background: url($--image-url + 'icons/ico-walk-num.svg') center no-repeat;
+    }
+  }
+  &-walk-calorie {
+    @include iconVar(1.875, 1.875) {
+      background: url($--image-url + 'icons/ico-walk-calorie.svg') center no-repeat;
+    }
+  }
+  &-loader-icon {
+    @include iconVar(2.5, 2.5) {
+      background: url($--image-url + 'icons/ico-loader-icon.svg') center no-repeat;
+    }
+  }
+}

@@ -1,0 +1,831 @@
+.bottomsheet {
+  // overflow: hidden;
+  // max-height: calc((100vh / 2) - $headerHeight);
+  max-height: $bsheetMaxHeight;
+  @include position(fixed, null, $bottomNavHeight, 0, 0, 100);
+
+  .handlebar {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .btn {
+      width: 2.375rem;
+      height: 2.375rem;
+      margin: 0 auto;
+      transform: rotate(-180deg);
+      transition: 0.3s 0.3s all ease-in-out;
+    }
+  }
+
+  // navigation 없을 때
+  &.bs-bottom {
+    bottom: 0;
+    .bottomsheet-inner {
+      transform: translate(0, calc(100% - 4rem));
+    }
+  }
+
+  // bottomsheet shown
+  &.is-shown {
+    .bottomsheet-inner {
+      transform: translate(0, 0);
+    }
+
+    .handlebar {
+      .btn {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  &.is-hidden {
+    .bottomsheet-inner {
+      transition: 0s;
+      transform: translate(0, 100%);
+    }
+    .handlebar {
+      display: none;
+    }
+  }
+
+  &-inner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    border-radius: 1.25rem 1.25rem 0 0;
+    border: 1px solid #ebebeb;
+    border-bottom: 0;
+    background-color: #fff;
+    transition: transform 0.3s ease-in;
+    transform: translate(0, calc(100% - 3.1875rem));
+
+    .bottomsheet-content-info {
+      overflow-y: auto;
+      max-height: $bsheetMaxHeight;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+
+      .info-head {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1rem 1rem 0.62rem;
+
+        .tx-title {
+          h3 {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #1e1e1e;
+          }
+        }
+
+        .location {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.38rem;
+
+          .tx-label {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #878787;
+          }
+          .tx-location {
+            flex: 1 1 auto;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #1e1e1e;
+          }
+          .temp {
+            display: flex;
+            align-items: center;
+            gap: 0.38rem;
+
+            .icon {
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+            .tx-temp {
+              font-weight: 700;
+              font-size: 0.875rem;
+              color: #1e1e1e;
+            }
+          }
+        }
+      }
+
+      .info-body {
+        overflow: hidden;
+        padding: 1.25rem 1rem;
+
+        // 태그 목록
+        .tags {
+          .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.62rem;
+
+            li {
+              .btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.38rem 0.62rem;
+                border-radius: 3.13rem;
+                font-weight: 700;
+                font-size: 0.75rem;
+                border: 1px solid $life;
+                color: $life;
+                background-color: #fff;
+              }
+            }
+          }
+        }
+        // 빅데이터 버튼 (공통으로 사용됨 _bottomsheet.scss 참고)
+        .btn-lists {
+          margin-bottom: 1.26rem;
+
+          li {
+            .btn {
+              &.btn-bg {
+                margin-top: 0;
+              }
+            }
+          }
+        }
+
+        .btns {
+          li {
+            &.bg-safety {
+              .btn {
+                background-color: #d8f3ff;
+              }
+            }
+            &.bg-traffic {
+              .btn {
+                background-color: #efdbff;
+              }
+            }
+            &.bg-env {
+              .btn {
+                background-color: #ffe0f1;
+              }
+            }
+            &.bg-life {
+              .btn {
+                background-color: #ffe8d4;
+              }
+            }
+          }
+        }
+
+        .result-list {
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+
+            > li {
+              padding-bottom: 1.25rem;
+              border-bottom: 1px solid #ebebeb;
+
+              &:last-child {
+                border-bottom: 0;
+              }
+
+              .btn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                gap: 1rem;
+
+                .tx-distance {
+                  flex-shrink: 0;
+                  min-width: 4rem;
+                  font-size: 0.875rem;
+                  color: #1e1e1e;
+                }
+                .tx-cont {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.38rem;
+                  text-align: left;
+
+                  .tx-name {
+                    font-weight: 700;
+                    font-size: 1rem;
+                    color: $primary;
+                  }
+                  .tx-cate {
+                    font-size: 0.875rem;
+                    color: #878787;
+                  }
+                  .tx-address {
+                    font-size: 0.875rem;
+                    color: #1e1e1e;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .body-inner {
+          .div-line {
+            @include divLineHr();
+            width: 100%;
+            margin: 0;
+          }
+        }
+
+        // 안전/교통/환경/생활 상세
+        .info-detail {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          padding-bottom: 1.25rem;
+
+          .btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            gap: 1.25rem;
+            width: 100%;
+
+            .tx-distance {
+              flex-shrink: 0;
+              font-size: 0.875rem;
+              color: #1e1e1e;
+              line-height: 1.25rem;
+            }
+            .tx-cont {
+              display: flex;
+              flex-direction: column;
+              gap: 0.38rem;
+              text-align: left;
+              line-height: 1.25rem;
+
+              .tx-name {
+                font-weight: 700;
+                font-size: 1rem;
+                color: $primary;
+              }
+              .tx-cate {
+                font-size: 0.875rem;
+                color: #878787;
+
+                .is-state {
+                  padding-left: 0.38rem;
+                  font-weight: 700;
+                }
+              }
+              .tx-address {
+                font-size: 0.875rem;
+                color: #1e1e1e;
+              }
+            }
+          }
+
+          .btn-group {
+            display: flex;
+            justify-content: end;
+            gap: 1.5rem;
+
+            .btn-text {
+              font-size: 0.875rem;
+              color: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 생활 > 의료기관 > 상세 컨텐츠
+.medical-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  text-align: left;
+
+  .tx-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .tx-row-inline {
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.38rem;
+    }
+
+    .tx-name {
+      flex-grow: 1;
+      flex-basis: auto;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.4rem;
+      color: $primary;
+    }
+    .btn-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      flex-shrink: 0;
+      font-size: 0.875rem;
+      color: #1e1e1e;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 1.25rem;
+        height: 1.25rem;
+        background: url($--image-url + 'icons/ico-tel.svg');
+      }
+    }
+
+    .btn-state {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0.9375rem;
+        height: 0.9375rem;
+        transition: all 0.2s ease-in-out;
+        background: url($--image-url + 'icons/ico-chevron-dropdown-sm.svg');
+      }
+
+      &.st-open {
+        color: $green;
+      }
+      &.st-close {
+        color: #878787;
+      }
+
+      &.is-shown {
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .tx-cate {
+      font-size: 0.875rem;
+      color: #878787;
+    }
+    .tx-address {
+      font-size: 0.875rem;
+      color: #1e1e1e;
+      .btn-text {
+        margin-left: 0.35rem;
+      }
+    }
+    .tx-distance {
+      flex-shrink: 0;
+      min-width: 4rem;
+      font-size: 0.875rem;
+      color: #1e1e1e;
+      text-align: right;
+    }
+
+    .btn-text {
+      font-size: 0.875rem;
+      color: $blue;
+    }
+  }
+
+  // 의료기관 > 운영시간
+  .week-status {
+    display: none;
+    &.is-shown {
+      display: flex;
+    }
+    > ul {
+      gap: 0.12rem !important;
+      > li {
+        display: flex;
+        gap: 0.5rem;
+        padding-bottom: 0 !important;
+        border: 0 !important;
+        span {
+          font-size: 0.875rem;
+          color: #1e1e1e;
+        }
+      }
+    }
+  }
+}
+
+// 교통 > 운영 현황/버스정류장/버스노선/CCTV
+.operate {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+
+  &-tit {
+    display: flex;
+    justify-content: space-between;
+
+    .tx-tit {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1e1e1e;
+    }
+    .tx-time {
+      font-size: 0.875rem;
+      color: #878787;
+      > p + p {
+        margin-top: 0.25rem;
+      }
+    }
+    .tx-update {
+      font-size: 0.875rem;
+      color: #878787;
+    }
+  }
+
+  &-state {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.12rem;
+
+    .state-item {
+      flex: 1 1 33.333337%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      text-align: center;
+
+      .img-view {
+        overflow: hidden;
+        width: auto;
+        height: 3.124rem;
+        margin: 0 auto;
+        border-radius: 0.625rem;
+      }
+      .tx-num {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1e1e1e;
+      }
+      .tx-name {
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #1e1e1e;
+      }
+    }
+  }
+
+  // 버스 정류장 > 도착 예정
+  .bus-arrival {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .bus-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      > label {
+        flex: 1 0 20%;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #878787;
+      }
+      .bus-nums {
+        flex: 1 1 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        gap: 0.125rem;
+
+        li {
+          font-weight: 700;
+          font-size: 0.875rem;
+          color: $blue;
+
+          &:not(:last-child)::after {
+            content: ', ';
+          }
+
+          &.no-bus {
+            font-weight: 400;
+            color: #878787;
+          }
+        }
+      }
+    }
+  }
+
+  // 버스 정류장 > 도착 예정 표
+  .arrive-alarm {
+    border-radius: 0.625rem;
+    border: 1px solid #ebebeb;
+    .arrive-line {
+      padding: 0.5rem 0.62rem;
+
+      & + .arrive-line {
+        border-top: 1px solid #ebebeb;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        line-height: 1.5rem;
+
+        .tx-num {
+          flex-basis: 40%;
+          text-align: center;
+          font-weight: 700;
+          color: $blue;
+        }
+        .tx-arrive {
+          flex-basis: 60%;
+          text-align: right;
+          font-size: 0.875rem;
+          color: #1e1e1e;
+
+          > span {
+            font-weight: 700;
+          }
+
+          &.is-soon {
+            font-weight: 700;
+            color: $danger;
+          }
+          &.is-wait {
+            color: #777;
+          }
+          &.is-end {
+            color: $gray-500;
+          }
+        }
+      }
+    }
+  }
+
+  // 버스 노선 표
+  .bus-line-list {
+    border-radius: 0.625rem;
+    border: 1px solid #ebebeb;
+
+    li {
+      padding: 0.5rem 0.62rem;
+
+      & + li {
+        border-top: 1px solid #ebebeb;
+      }
+
+      &:first-child .btn::before,
+      &:last-child .btn::after {
+        display: none;
+      }
+
+      .btn {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 0 0.85rem;
+        line-height: 1.5rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -0.51rem;
+          left: 1.47rem;
+          height: 100%;
+          border: 2px solid #d7d7d7;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -0.52rem;
+          left: 1.47rem;
+          height: 100%;
+          border: 2px solid #d7d7d7;
+        }
+
+        > i {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 0.75rem;
+
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 100%;
+            background-color: #1e1e1e;
+          }
+        }
+        .tx-num {
+          flex-basis: 40%;
+          text-align: center;
+          font-weight: 700;
+          color: $blue;
+        }
+        .tx-arrive {
+          flex-basis: 60%;
+          text-align: right;
+          font-size: 0.875rem;
+          color: #1e1e1e;
+
+          > span {
+            font-weight: 700;
+          }
+
+          &.is-soon {
+            font-weight: 700;
+            color: $danger;
+          }
+          &.is-wait {
+            color: #777;
+          }
+          &.is-end {
+            color: $gray-500;
+          }
+        }
+      }
+    }
+  }
+
+  // 교통 CCTV
+  .trafiic-cctv {
+    width: 100%;
+
+    .cctv-item {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.26%;
+      border-radius: 0.625rem;
+      background-color: #f4f4f4;
+
+      &.active {
+        .video-view {
+          display: block;
+        }
+        .img-view,
+        .dimmed,
+        .btn {
+          display: none;
+        }
+      }
+
+      .video-view,
+      .img-view {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+      .video-view {
+        display: none;
+        &.active {
+          z-index: 20;
+          display: block;
+          background-color: $primary;
+        }
+      }
+      .dimmed {
+        @include position(absolute, 0, 0, 0, 0, 10);
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      .btn-play {
+        @include position(absolute, 0, 0, 0, 0, 10);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .tx-msg {
+        @include position(absolute, 0, 0, 0, 0, 10);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #1e1e1e;
+        line-height: 1.4rem;
+      }
+
+      // 데이터 없을 때
+      &.no-data {
+        .img-view,
+        .video-view,
+        .dimmed,
+        .btn {
+          display: none;
+        }
+        .tx-msg {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  // 미세먼지
+  .dust-list {
+    .dust-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem 1.12rem;
+
+      & + .dust-item {
+        border-top: 1px solid #ebebeb;
+      }
+
+      .ico {
+        flex-shrink: 0;
+        width: 3.125rem;
+        height: 3.125rem;
+        background: url($--image-url + 'icons/ico-dust-0.svg');
+      }
+
+      dl.info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        dt.txt {
+          font-weight: 700;
+          font-size: 0.875rem;
+          color: #1e1e1e;
+          &::after {
+            content: '확인불가';
+          }
+        }
+        dd {
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+          width: 100%;
+
+          p {
+            font-size: 0.875rem;
+            color: #878787;
+
+            strong {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    $dustColor: ($blue, $teal, $orange, $danger);
+    $dustName: ('좋음', '보통', '나쁨', '매우 나쁨');
+    @for $i from 1 to 5 {
+      .dust-#{$i} {
+        .ico {
+          background: url($--image-url + 'icons/ico-dust-#{$i}.svg');
+        }
+        dl.info {
+          dt.txt {
+            color: nth($dustColor, $i);
+
+            &::after {
+              content: nth($dustName, $i);
+            }
+          }
+          dd {
+            strong {
+              color: nth($dustColor, $i);
+            }
+          }
+        }
+      }
+    }
+  }
+}

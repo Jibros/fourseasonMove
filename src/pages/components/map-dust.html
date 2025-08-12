@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../../assets/js/include.js"></script>
+  </head>
+  <body data-page-title="카테고리명">
+    <!-- WRAPPER -->
+    <div class="wrapper wrapper-map">
+      <!-- HEADER 맵 검색 -->
+      <!-- <div data-include-path="./layout/header-type-map.html"></div> -->
+      <!-- // HEADER 맵 검색 -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-map">
+          <!-- 지도 : 100% x 100% -->
+          <div class="map-wrap">
+            <div id="kakaomap" class="kakao-map">
+              <!-- 미세먼지 수치 색상 -->
+              <div class="abs-dust-color" style="bottom: 5.375rem; left: 1rem">
+                <ul>
+                  <li class="dust-5"></li>
+                  <li class="dust-4"></li>
+                  <li class="dust-3"></li>
+                  <li class="dust-2"></li>
+                  <li class="dust-1"></li>
+                </ul>
+              </div>
+
+              <!-- 위치별 미세먼지 수치 레이어 -->
+              <!-- 
+              dust-num-1~5 : 정보없음, 좋음, 보통, 나쁨, 매우 나쁨
+              -->
+              <div class="abs-dust-numeric" style="top: 50%; left: 50%">
+                <!-- 
+                  미세먼지 수치가 더 높은 컬러로 테두리값 지정됨
+                  dust-1~5 : 회색, 파랑, 초록, 주황, 빨강
+                -->
+                <div class="numeric-inner dust-1">
+                  <p class="dust-micro dust-num-1">36</p>
+                  <hr />
+                  <p class="dust-ultra dust-num-2">15</p>
+                </div>
+              </div>
+
+              <!-- 위치별 미세먼지 수치 레이어 -->
+              <div class="abs-dust-numeric" style="top: 30%; left: 60%">
+                <div class="numeric-inner dust-5">
+                  <p class="dust-micro dust-num-5">999</p>
+                  <hr />
+                  <p class="dust-ultra dust-num-3">87</p>
+                </div>
+              </div>
+
+              <!-- 위치별 미세먼지 수치 레이어 -->
+              <div class="abs-dust-numeric" style="top: 10%; left: 35%">
+                <div class="numeric-inner dust-3">
+                  <p class="dust-micro dust-num-2">75</p>
+                  <hr />
+                  <p class="dust-ultra dust-num-3">87</p>
+                </div>
+              </div>
+
+              <!-- 위치별 미세먼지 수치 레이어 -->
+              <div class="abs-dust-numeric" style="top: calc(80% - 5rem); left: calc(78% - 3.25rem)">
+                <div class="numeric-inner dust-2">
+                  <p class="dust-micro dust-num-2">75</p>
+                  <hr />
+                  <p class="dust-ultra dust-num-1">12</p>
+                </div>
+              </div>
+
+              <!-- 위치별 미세먼지 수치 레이어 -->
+              <div class="abs-dust-numeric" style="top: calc(86% - 5rem); left: 14%">
+                <div class="numeric-inner dust-2">
+                  <p class="dust-micro dust-num-1">16</p>
+                  <hr />
+                  <p class="dust-ultra dust-num-2">42</p>
+                </div>
+              </div>
+
+              <div class="abs-back" style="top: 1rem; left: 1rem">
+                <button type="button" class="btn">
+                  <i class="ico ico-chevron-left"></i>
+                </button>
+              </div>
+              <div class="abs-map-control" style="top: 1rem; right: 1rem">
+                <button type="button" class="btn btn-modal" data-modal-target=".modal-map">
+                  <i class="ico ico-map-layer"></i>
+                </button>
+                <button type="button" class="btn">
+                  <i class="ico ico-map-current"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+
+    <!-- 모달 : 지도 정보 -->
+    <!-- <div data-include-path="../layout/modalMapLayer.html"></div> -->
+    <!-- 노출 : .show -->
+    <section class="modal modal-map">
+      <div class="dimmed"></div>
+
+      <div class="modal-inner">
+        <div class="modal-head">
+          <h3 class="tx-title">지도 정보</h3>
+          <button type="button" class="btn btn-modal-close">
+            <i class="ico ico-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="map-type-list">
+            <label>지도 유형</label>
+
+            <div class="btn-group">
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-1.png" alt="기본" />
+                <span>기본</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-2.png" alt="기본" />
+                <span>위성</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-3.png" alt="기본" />
+                <span>지형</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-4.png" alt="기본" />
+                <span>교통 정보</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-5.png" alt="기본" />
+                <span>등산로</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-6.png" alt="기본" />
+                <span>자전거 도로</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-7.png" alt="기본" />
+                <span>방범 CCTV</span>
+              </button>
+              <button type="button" class="btn">
+                <img src="../../assets/images/map/map-type-8.png" alt="기본" />
+                <span>미세먼지</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // BOTTOM SHEET -->
+
+    <!-- BOTTOM NAVBAR -->
+    <div data-include-path="../layout/navbar.html"></div>
+    <!-- // BOTTOM NAVBAR -->
+
+    <!-- 카카오맵 js -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a26a049d4bb8586b37ebe378fa8fbc28"></script>
+    <script>
+      const mapContainer = document.getElementById("kakaomap"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(37.39428403593108, 126.95687180348044), //지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+      const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    </script>
+  </body>
+</html>

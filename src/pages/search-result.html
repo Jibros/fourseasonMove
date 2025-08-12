@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="text/javascript" src="../assets/js/bottomsheet.js"></script>
+  </head>
+  <body data-page-title="카테고리명">
+    <!-- WRAPPER -->
+    <div class="wrapper wrapper-map">
+      <!-- HEADER -->
+      <div data-include-path="./layout/header-type-search.html"></div>
+      <!-- // HEADER -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-map">
+          <div class="map-wrap">
+            <div id="kakaomap" class="kakao-map">
+              <div class="abs-map-update active" style="top: 4.125rem; left: 50%" onclick="$(this).removeClass('active')">
+                <button type="button" class="btn">현재 화면에서 재검색</button>
+              </div>
+              <div class="abs-map-control" style="top: 4.125rem; right: 1rem">
+                <button type="button" class="btn btn-modal" data-modal-target=".modal-map">
+                  <i class="ico ico-map-layer"></i>
+                </button>
+                <button type="button" class="btn">
+                  <i class="ico ico-map-current"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+
+    <!-- BOTTOM NAVBAR -->
+    <div data-include-path="./layout/navbar.html"></div>
+    <!-- // BOTTOM NAVBAR -->
+
+    <!-- BOTTOM SHEET -->
+    <section class="bottomsheet">
+      <div class="bottomsheet-inner">
+        <!-- 버튼 : 바텀시트 토글 -->
+        <div class="handlebar">
+          <button type="button" class="btn btnSheetToggle">
+            <i class="ico ico-bottomsheet-handle"></i>
+          </button>
+        </div>
+
+        <!-- 바텀시트 상세 -->
+        <div class="bottomsheet-content-info">
+          <div class="info-head">
+            <!-- 타이틀 -->
+            <div class="tx-title">
+              <h3>검색 결과</h3>
+            </div>
+          </div>
+
+          <div class="info-body">
+            <div class="body-inner">
+              <div class="result-list">
+                <ul class="scroll-body">
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <!-- 
+                  [25.06.10] 안양시 수정사항 반영
+                  1. 생활 > 야간 휴일 의료기관 > 상세 정보(운영상태, 전화번호, 운영시간 등) 노출 
+                  2. 의료기관 검색에 한하여, 네이버 상세보기 인터넷 브라우저 또는 웹뷰 이동 (링크 예: https://buly.kr/EdtI037)
+                     -> 그 외, '카카오맵에서 보기' 액션 유지
+                -->
+                    <div class="medical-cont">
+                      <div class="tx-row">
+                        <button type="button" class="btn tx-name">검색 항목명1</button>
+                        <button type="button" class="btn-phone">02-1234-5678</button>
+                      </div>
+                      <div class="tx-row">
+                        <div class="tx-row-inline">
+                          <span class="tx-cate">카테고리</span>
+                          <!--
+                        운영 중 : st-open
+                        미운영 :  st-close
+
+                        드롭다운 토글 : is-shown 클래스 (add/remove)
+                        @/assets/js/bottomsheet.js
+                      -->
+                          <button type="button" class="btn-state st-open">운영 중</button>
+                          <!-- <button type="button" class="btn-state st-close">미운영</button> -->
+                        </div>
+                        <div>
+                          <p class="tx-distance">100m</p>
+                        </div>
+                      </div>
+                      <div class="week-status">
+                        <ul>
+                          <li><span>월</span><span>10:00~00:00</span></li>
+                          <li><span>화</span><span>10:00~00:00</span></li>
+                          <li><span>수</span><span>10:00~00:00</span></li>
+                          <li><span>목</span><span>10:00~00:00</span></li>
+                          <li><span>금</span><span>10:00~00:00</span></li>
+                          <li><span>토</span><span>10:00~00:00</span></li>
+                          <li><span>일</span><span>10:00~00:00</span></li>
+                          <li><span>공휴일</span><span>10:00~00:00</span></li>
+                        </ul>
+                      </div>
+
+                      <div class="tx-row">
+                        <span class="tx-address">경기 광명시 일직로 43</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                  <li>
+                    <div class="medical-cont">
+                      <div class="tx-row">
+                        <button type="button" class="btn tx-name">검색 항목명1</button>
+                        <button type="button" class="btn-phone">02-1234-5678</button>
+                      </div>
+                      <div class="tx-row">
+                        <div class="tx-row-inline">
+                          <span class="tx-cate">카테고리</span>
+                          <!-- <button type="button" class="btn-state st-open">운영 중</button> -->
+                          <button type="button" class="btn-state st-close">미운영</button>
+                        </div>
+                        <div>
+                          <p class="tx-distance">100m</p>
+                        </div>
+                      </div>
+                      <div class="week-status">
+                        <ul>
+                          <li><span>월</span><span>10:00~00:00</span></li>
+                          <li><span>화</span><span>10:00~00:00</span></li>
+                          <li><span>수</span><span>10:00~00:00</span></li>
+                          <li><span>목</span><span>10:00~00:00</span></li>
+                          <li><span>금</span><span>10:00~00:00</span></li>
+                          <li><span>토</span><span>10:00~00:00</span></li>
+                          <li><span>일</span><span>10:00~00:00</span></li>
+                          <li><span>공휴일</span><span>10:00~00:00</span></li>
+                        </ul>
+                      </div>
+
+                      <div class="tx-row">
+                        <span class="tx-address">경기 광명시 일직로 43</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <button type="button" class="btn">
+                      <div class="tx-cont">
+                        <p class="tx-name">검색 항목명1</p>
+                        <span class="tx-cate">카테고리</span>
+                        <span class="tx-address">검색 항목 1의 설치 주소</span>
+                      </div>
+                      <p class="tx-distance">100m</p>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // 바텀시트 상세 -->
+      </div>
+    </section>
+    <!-- // BOTTOM SHEET -->
+
+    <!-- 모달 : 지도 정보 -->
+    <div data-include-path="./layout/modalMapLayer.html"></div>
+
+    <!-- 카카오맵 js -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a26a049d4bb8586b37ebe378fa8fbc28"></script>
+    <script type="text/javascript" src="../assets/js/kakaomap.js"></script>
+  </body>
+</html>

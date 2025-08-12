@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/js/vendor/swiper/swiper-bundle.min.css" />
+    <script defer src="../assets/js/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- FLATPICKR -->
+    <script src="../assets/js/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="../assets/js/vendor/flatpickr/flatpickr.ko.min.js"></script>
+    <script src="../assets/js/vendor/flatpickr/monthSelect/index.js"></script>
+    <link rel="stylesheet" href="../assets/js/vendor/flatpickr/monthSelect/style.css" />
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body data-page-title="산책 기록">
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <div data-include-path="./layout/header-type-sub.html"></div>
+      <!-- // HEADER TYPE VIEW -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-leisure bg-gray">
+          <div class="month-title">
+            <button type="button" class="btn" id="prevMonth">
+              <i class="ico ico-chevron-left-month"></i>
+            </button>
+
+            <div class="tx-month">
+              <button type="button" class="btn btn-calendar" id="monthPicker">2025년 02월</button>
+            </div>
+
+            <button type="button" class="btn" id="nextMonth">
+              <i class="ico ico-chevron-right-month"></i>
+            </button>
+          </div>
+
+          <!-- 사용자 N월 기록 데이터 -->
+          <div class="user-walk-data">
+            <div class="summary">
+              <div class="summary-item">
+                <i class="ico ico-walk-distance"></i>
+                <p class="txt">
+                  <span>걸은 거리</span>
+                  <strong>10,000m</strong>
+                </p>
+              </div>
+              <div class="summary-item">
+                <i class="ico ico-walk-clock"></i>
+                <p class="txt">
+                  <span>걸은 시간</span>
+                  <strong>10,000분</strong>
+                </p>
+              </div>
+              <div class="summary-item">
+                <i class="ico ico-walk-num"></i>
+                <p class="txt">
+                  <span>걸음 수</span>
+                  <strong>10,000보</strong>
+                </p>
+              </div>
+              <div class="summary-item">
+                <i class="ico ico-walk-calorie"></i>
+                <p class="txt">
+                  <span>소모 칼로리</span>
+                  <strong>10,000Kcal</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- // 사용자 N월 기록 데이터 -->
+
+          <!-- 사용자 기록 목록 -->
+          <div class="user-course">
+            <!-- 산책 기록이 없을 때 -->
+            <div class="user-course-item">
+              <div class="no-cont active">
+                <p class="tx-msg">기록된 걸음이 없습니다.</p>
+              </div>
+            </div>
+            <!-- // 산책 기록이 없을 때 -->
+
+            <!-- 반복 -->
+            <div class="user-course-item">
+              <div class="title">
+                <p class="tx-name">산책로 이름</p>
+                <p class="tx-date">2025.02.15</p>
+              </div>
+
+              <div class="history-summary">
+                <p><label>걸은 거리</label> <strong>10,000m</strong></p>
+                <p><label>걸은 시간</label> <strong>10,000분</strong></p>
+                <p><label>걸은 수</label> <strong>10,000보</strong></p>
+                <p><label>소모 칼로리</label> <strong>10,000Kcal</strong></p>
+              </div>
+            </div>
+            <!-- // 반복 -->
+
+            <div class="user-course-item">
+              <div class="title">
+                <p class="tx-name">산책로 이름</p>
+                <p class="tx-date">2025.02.15</p>
+              </div>
+
+              <div class="history-summary">
+                <p><label>걸은 거리</label> <strong>10,000m</strong></p>
+                <p><label>걸은 시간</label> <strong>10,000분</strong></p>
+                <p><label>걸은 수</label> <strong>10,000보</strong></p>
+                <p><label>소모 칼로리</label> <strong>10,000Kcal</strong></p>
+              </div>
+            </div>
+
+            <div class="user-course-item">
+              <div class="title">
+                <p class="tx-name">산책로 이름</p>
+                <p class="tx-date">2025.02.15</p>
+              </div>
+
+              <div class="history-summary">
+                <p><label>걸은 거리</label> <strong>10,000m</strong></p>
+                <p><label>걸은 시간</label> <strong>10,000분</strong></p>
+                <p><label>걸은 수</label> <strong>10,000보</strong></p>
+                <p><label>소모 칼로리</label> <strong>10,000Kcal</strong></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+
+    <script>
+      $(function () {
+        const monthPicker = $(".btn-calendar");
+        const monthNames = ["01월", "02월", "03월", "04월", "05월", "06월", "07월", "08월", "09월", "10월", "11월", "12월"];
+        let currentDate = new Date();
+
+        // 해당 연월 텍스트 변경 및 monthCalendar 업데이트
+        function updateMonthText() {
+          const year = currentDate.getFullYear();
+          const currentYear = new Date().getFullYear();
+          const monthText = `${year}년 ${monthNames[currentDate.getMonth()]}`;
+          monthPicker.text(monthText);
+
+          monthCalendar.setDate(currentDate, true);
+          monthCalendar.jumpToDate(currentDate, true);
+          monthCalendar.redraw();
+
+          console.log(year, currentYear);
+          if (year != currentYear) {
+            setTimeout(() => {
+              $(".flatpickr-monthSelect-month.today").removeClass("today");
+            }, 10);
+          }
+
+          drawWalkData();
+        }
+
+        function drawWalkData() {
+          // 데이터 변경
+        }
+
+        // 화면 내 좌측 화살표 클릭
+        $("#prevMonth").on("click", function () {
+          currentDate.setMonth(currentDate.getMonth() - 1);
+          updateMonthText();
+        });
+
+        // 화면 내 우측 화살표 클릭
+        $("#nextMonth").on("click", function () {
+          currentDate.setMonth(currentDate.getMonth() + 1);
+          updateMonthText();
+        });
+
+        // flatPicker 실행
+        const monthCalendar = flatpickr("#monthPicker", {
+          disableMobile: "true",
+          locale: "ko",
+          dateFormat: "Y년 m월",
+          defaultDate: currentDate,
+          plugins: [
+            new monthSelectPlugin({
+              shorthand: false,
+              dateFormat: "Y년 m월",
+              altFormat: "M",
+              theme: "light",
+            }),
+          ],
+          onValueUpdate: function (selectedDates, dateStr, instance) {
+            instance.redraw();
+          },
+          onOpen: function (selectedDates, dateStr, instance) {
+            if ($(".flatpickr-dimmed").length === 0) {
+              $("<div class='flatpickr-dimmed'></div>")
+                .appendTo($(instance.calendarContainer))
+                .on("click", function () {
+                  instance.close(); // 클릭 시 달력 닫기
+                });
+            }
+          },
+          onReady: function (selectedDates, dateStr, instance) {
+            instance.setDate(currentDate, false);
+            instance.jumpToDate(currentDate);
+            instance.redraw();
+          },
+          onYearChange: function (selectedDates, dateStr, instance) {
+            console.log("연도 변경:", instance.currentYear);
+            currentDate.setFullYear(instance.currentYear);
+            instance.setDate(currentDate, false);
+            instance.jumpToDate(currentDate);
+            instance.redraw();
+          },
+          onClose: function (selectedDates, dateStr) {
+            console.log("선택된 날짜:", selectedDates, dateStr);
+            if (selectedDates.length > 0) {
+              currentDate = selectedDates[0];
+              updateMonthText();
+            }
+            $(".flatpickr-dimmed").remove();
+
+            drawWalkData();
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

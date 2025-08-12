@@ -1,0 +1,32 @@
+// 비디오(video, youtube 등)
+.video-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 53.26%;
+  border-radius: 0.625rem;
+  background-color: #f4f4f4;
+
+  .video-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    &[poster] {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/*
+ * 예외
+ */
+.video-wrap + .article-head {
+  // CCTV 재난 알림
+  padding-top: 1.88rem;
+}

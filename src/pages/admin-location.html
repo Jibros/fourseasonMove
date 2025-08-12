@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/js/vendor/swiper/swiper-bundle.min.css" />
+    <script defer src="../assets/js/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body data-page-title="오시는 길">
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <div data-include-path="./layout/header-type-sub.html"></div>
+      <!-- // HEADER TYPE VIEW -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-admin-sub">
+          <div class="location-sub">
+            <!-- KAKAOMAP -->
+            <div id="kakaomap" class="location-map"></div>
+
+            <div class="location-info">
+              <h3 class="tx-tit">Location</h3>
+
+              <p class="tx-addr">경기도 안양시 동안구 평촌대로243번길 42 (우)14047</p>
+
+              <ul class="tx-numb">
+                <li><i class="ico ico-tel"></i> TEL : 031-8045-7000</li>
+                <li><i class="ico ico-fax"></i> FAX : 031-8045-5500</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tab-container">
+            <div class="tab-nav">
+              <ul>
+                <li><button type="button" class="btn active">대중교통 이용시</button></li>
+                <li><button type="button" class="btn">자가용 이용시</button></li>
+              </ul>
+            </div>
+
+            <!-- 탭 컨텐츠 -->
+            <div class="tab-contents">
+              <!-- 탭 > 대중교통 이용시 -->
+              <div class="tab-pane active">
+                <div class="location-sub">
+                  <div class="route-info">
+                    <h3 class="route-title">
+                      <i class="ico ico-bus-gray"></i>
+                      좌석버스 이용 시
+                    </h3>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge badge-bus">직행 좌석버스 3030번</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>삼성역 → 양재역 → 과천 외곽도로 → 인덕원 → 범계역 하차</li>
+                      </ul>
+
+                      <p class="tx-desc">범계역 1번 출구로 나와서, 사거리 횡단보도까지 70m 직진 → 사거리 횡단 후 약 50m 직진 → 오른쪽길로 약 100m 이동하시면 됩니다. (도보 10분)</p>
+                    </div>
+                  </div>
+
+                  <div class="route-info">
+                    <h3 class="route-title">
+                      <i class="ico ico-metro-gray"></i>
+                      지하철 이용 시
+                    </h3>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge badge-metro1">1호선</p>
+                        <p class="tx-msg">수원역에서 예상소요시간 (35분)</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>(1호선) 수원역 → (1호선) 금정역 (4호선) 환승 → (4호선) 범계역 하차</li>
+                      </ul>
+                    </div>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge badge-metro4">4호선</p>
+                        <p class="tx-msg">사당역에서 예상소요시간 (30분)</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>(4호선) 사당역 → (4호선) 범계역 하차</li>
+                      </ul>
+                    </div>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge badge-metro4">4호선</p>
+                        <p class="tx-msg">서울역에서 예상소요시간 (50분)</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>(4호선) 서울역 → (4호선) 범계역 하차</li>
+                      </ul>
+                    </div>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge badge-metro7">7호선</p>
+                        <p class="tx-msg">서울 강남고속버스터미널에서 예상소요시간(60분)</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>(7호선) 고속터미널역 -> (7호선) 이수역(4호선) 환승 → (4호선) 범계역 하차</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- // 탭 > 대중교통 이용시 -->
+
+              <!-- 탭 > 자가용 이용시 -->
+              <div class="tab-pane">
+                <div class="location-sub">
+                  <div class="route-info">
+                    <h3 class="route-title">
+                      <i class="ico ico-car-gray"></i>
+                      자가용 이용시
+                    </h3>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge">사당에서</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>사당역 → 남태령고개 → 관문사거리(직진) → 서울대공원 I.C → 문원중학교 → 과천주공 3단지 → 학의 분기점 평촌 I.C에서 빠져나옴(안양시청 방향)</li>
+                      </ul>
+                    </div>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge">경부 고속도로, 대전방면에서</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>서울톨게이트 → 판교J.C → 서울외곽순환고속도로(일산 방면) → 평촌 I.C에서 빠져나옴(안양시청 방향)</li>
+                      </ul>
+                    </div>
+
+                    <div class="route-detail">
+                      <div class="route-type">
+                        <p class="badge">사당에서</p>
+                      </div>
+
+                      <ul class="tx-desc-list">
+                        <li>서서울톨게이트 → 조남JC → 서울외곽순환고속도로(구리 방면) → 평촌 I.C에서 빠져나옴(안양시청 방향)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- // 탭 > 자가용 이용시 -->
+            </div>
+          </div>
+
+          <!-- TOP & 예약 바로 가기 -->
+          <div class="bottom-page-utils">
+            <!-- 상단 SCROLL BTN -->
+            <div class="btn-top">
+              <button type="button" class="btn"><img src="../assets/images/icons/ico-btn-top.svg" alt="" /></button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+
+    <!-- 카카오맵 js -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a26a049d4bb8586b37ebe378fa8fbc28"></script>
+    <script type="text/javascript" src="../assets/js/kakaomap.js"></script>
+  </body>
+</html>

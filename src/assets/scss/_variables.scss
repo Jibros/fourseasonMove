@@ -1,0 +1,130 @@
+// utils/_variables.scss
+
+$text-color: #333;
+$background-color: #fff;
+$background-color-aside: #343a40;
+
+$--image-url: '../images/';
+$default-font-family:
+  'Pretendard',
+  -apple-system,
+  BlinkMacSystemFont,
+  system-ui,
+  Roboto,
+  'Segoe UI',
+  'Apple SD Gothic Neo',
+  'Noto Sans KR',
+  'Malgun Gothic',
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+  sans-serif;
+$font-messapia: 'Messapia', $default-font-family;
+$font-monospace: monospace, 'Courier New', sans-serif;
+
+$default-border-radius: 0.63rem;
+
+$layout-zindex100: 100;
+$layout-zindex200: 200;
+$layout-zindex300: 300;
+$layout-zindex400: 400;
+$layout-zindex500: 500;
+
+$headerHeight: 3.125rem;
+$bottomNavHeight: 3.75rem;
+$searchKeywordHeight: 5.375rem;
+$bsheetMaxHeight: calc(100vh - $bottomNavHeight - $searchKeywordHeight);
+$keywordListHeight: calc(100vh - $bottomNavHeight - $searchKeywordHeight - 2.5rem);
+
+// COLOR
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$blue: #0089eb !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #f36 !default;
+$orange: #ff6219 !default;
+$yellow: #ff8c00 !default;
+$green: #15b100 !default;
+$teal: #15b100 !default;
+$cyan: #2ab1ec !default;
+$black: #000 !default;
+$white: #fff !default;
+$life: #fc8d2b;
+
+$colors: (
+  'blue': $blue,
+  'indigo': $indigo,
+  'purple': $purple,
+  'pink': $pink,
+  'red': $red,
+  'orange': $orange,
+  'yellow': $yellow,
+  'green': $green,
+  'teal': $teal,
+  'cyan': $cyan,
+  'black': $black,
+  'white': $white,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
+  'bad': $orange,
+);
+
+// theme-color-variables
+$primary: #2a41cd;
+$secondary: $gray-600;
+$success: #15b100;
+$info: #17a2b8;
+$warning: #ff8000;
+$danger: #f52d2d;
+$light: $gray-100;
+$dark: #343a40;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  'reject': $gray-900,
+  'wating': $yellow,
+  'blue': $blue,
+);
+
+.tx-normal {
+  color: $green;
+}
+.tx-bad {
+  color: $orange;
+}
+.tx-bad-very {
+  color: $danger;
+}
+
+//rem계산
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return calc($value / ($value * 0 + 1px));
+}
+@function rem($pxValue) {
+  @return #{calc(stripUnit($pxValue) / stripUnit($html-font-size))}rem;
+}
+
+.img-view {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>사계절 이사 모바일 웹 구축</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="http://172.20.20.107:7980/status_board/css/main.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+
+      <!-- container -->
+      <main class="status_board d_container d_flex flex_column h_100">
+        <div class="heading_wrap h05">
+          <div class="item">
+            <strong class="title">사계절 이사 모바일 웹</strong>
+            <p class="desc">작업 완료일 : 25. 08</p>
+          </div>
+        </div>
+
+        <div class="d_row h_100 overflow_hidden">
+          <div class="d_col d_flex h_100">
+            <div class="card d_flex flex_column justify-start">
+              <!-- 테이블 -->
+              <div class="card_text flex_grow_0 overflow_auto" style="max-height: 100%; overflow-y: auto">
+                <table class="status_table data_list_ty1 md_data_list_ty1 fixH">
+                  <colgroup>
+                    <col style="width: 2%" />
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: 20%" />
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: 10%" />
+                    <col style="width: auto" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">Index</th>
+                      <th scope="col">메뉴명</th>
+                      <th scope="col">depth1</th>
+                      <th scope="col">depth2</th>
+                      <th scope="col">화면 ID</th>
+                      <th scope="col">바로 가기</th>
+                      <th scope="col">완료</th>
+                      <th scope="col">검수</th>
+                      <th scope="col">수정</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- ./publistData.json -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- 공통영역 include를 위한 스크립트. 개발시 제거 -->
+    <script src="http://172.20.20.107:7980/status_board/js/include.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("publistData.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const tbody = document.querySelector(".status_table tbody"); // 테이블의 tbody 선택
+            let rows = "";
+
+            // 데이터 반복 처리
+            data.forEach(function (item, index) {
+              // Updates를 처리하여 클래스와 내용을 결정
+              const updatesHtml = item.updates
+                .map(function (update) {
+                  // N : 신규, M : 수정, A : 추가, C : 완료
+                  const typeClass = update.type === "N" ? "blue" : update.type === "M" ? "yellow" : update.type === "A" ? "purple" : "gray";
+                  const typeText = update.type === "N" ? "신규" : update.type === "M" ? "수정" : update.type === "A" ? "추가" : "완료";
+                  return `<div class="item" style="text-align:left;"><span class="chip ${typeClass}">${typeText}</span>${update.content}</div>`;
+                })
+                .join("");
+
+              // Links를 처리하여 HTML 변환
+              const linksHtml = item.links
+                .map(function (link) {
+                  return `<a target="_blank" href="${link}">${link.split("/").pop()}</a>`;
+                })
+                .join("<br />");
+
+              // 행 추가
+              rows += `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${item.mainMenu}</td>
+                  <td>${item.subMenus.join("<br />")}</td>
+                  <td>${item.smallMenus.join("<br />")}</td>
+                  <td>${item.pageId.join("<br />")}</td>
+                  <td>${linksHtml}</td>
+                  <td><span class="dot v1">${item.completionDate}</span></td>
+                  <td><span class="dot v1">${item.status}</span></td>
+                  <td>
+                    <div class="items">${updatesHtml}</div>
+                  </td>
+                </tr>`;
+            });
+
+            // 생성된 HTML을 테이블의 tbody에 추가
+            tbody.innerHTML = rows;
+          })
+          .catch((error) => console.error("Error loading JSON data:", error));
+      });
+    </script>
+  </body>
+</html>

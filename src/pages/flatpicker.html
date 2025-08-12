@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css" />
+  </head>
+  <body>
+    <div id="flatpickr">달력</div>
+    <div class="btn-monthpicker"></div>
+
+    <script>
+      $(function () {
+        $(document).ready(function () {
+          // Flatpickr + monthSelectPlugin 설정
+          const monthPicker = flatpickr("#flatpickr", {
+            dateFormat: "F Y",
+            plugins: [
+              new monthSelectPlugin({
+                shorthand: true,
+                dateFormat: "m.y", //defaults to "F Y"
+                altFormat: "F Y", //defaults to "F Y"
+                theme: "dark", // defaults to "light"
+              }),
+            ],
+            onClose: function (selectedDates, dateStr) {
+              if (dateStr) {
+                $(".btn-monthpicker").text(dateStr);
+              }
+              // $(".modal-month-layer").fadeOut();
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

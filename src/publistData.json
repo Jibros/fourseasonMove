@@ -1,0 +1,14 @@
+[
+  {
+    "mainMenu": "공통",
+    "subMenus": ["레이아웃", "아이콘"],
+    "smallMenus": ["-"],
+    "pageId": ["[ LAYOUT-001 ]", "[ ICON-001 ]"],
+    "links": ["./pages/default/layout.html", "./pages/components/modal.html"],
+    "completionDate": "25.08",
+    "status": "작업 중",
+    "updates": [
+      { "type": "", "content": "[25.08.12] First Commit" }
+    ]
+  }
+]

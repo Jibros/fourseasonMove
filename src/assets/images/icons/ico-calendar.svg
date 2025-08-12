@@ -1,0 +1,14 @@
+<svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Calender">
+<rect id="Rectangle 5637" x="1" y="2" width="16" height="16" rx="2" fill="#1E1E1E"/>
+<path id="Line 57" d="M5 1C5 0.447715 4.55228 2.79981e-08 4 0C3.44772 -2.79981e-08 3 0.447715 3 1L5 1ZM3 1L3 5L5 5L5 1L3 1Z" fill="#1E1E1E"/>
+<path id="Line 58" d="M15 1C15 0.447715 14.5523 2.79981e-08 14 0C13.4477 -2.79981e-08 13 0.447715 13 1L15 1ZM13 1L13 5L15 5L15 1L13 1Z" fill="#1E1E1E"/>
+<rect id="Rectangle 5638" x="2" y="8" width="14" height="9" rx="1" fill="white"/>
+<circle id="Ellipse 347" cx="13" cy="11" r="1" fill="#1E1E1E"/>
+<circle id="Ellipse 351" cx="13" cy="14" r="1" fill="#1E1E1E"/>
+<circle id="Ellipse 348" cx="5" cy="11" r="1" fill="#1E1E1E"/>
+<circle id="Ellipse 352" cx="5" cy="14" r="1" fill="#1E1E1E"/>
+<circle id="Ellipse 349" cx="9" cy="11" r="1" fill="#1E1E1E"/>
+<circle id="Ellipse 353" cx="9" cy="14" r="1" fill="#1E1E1E"/>
+</g>
+</svg>

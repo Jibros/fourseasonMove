@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header-title">
+    <h1 id="headerTitle"><!-- 페이지 타이틀 --></h1>
+  </div>
+  <div class="header-utils">
+    <button type="button" class="btn btn-modal" data-modal-target=".modal-safety-move">
+      <i class="ico ico-sos"></i>
+    </button>
+    <!-- 알람 활성화 : .active -->
+    <button type="button" class="btn active" data-target="list-apppush">
+      <i class="ico ico-alarm"></i>
+    </button>
+    <button type="button" class="btn" data-target="more-menu">
+      <i class="ico ico-nav"></i>
+    </button>
+  </div>
+</header>
+
+<!-- 노출 : .show -->
+<section class="modal modal-layer modal-safety-move">
+  <div class="dimmed"></div>
+
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h3 class="tx-title">안전귀가</h3>
+      <button type="button" class="btn btn-modal-close">
+        <i class="ico ico-x"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-content">
+        <p class="tx-tit">안전귀가를 실행하시겠습니까?</p>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-modal-close">취소</button>
+        <!-- 딥링크 -->
+        <button type="button" class="btn btn-primary">이동</button>
+      </div>
+    </div>
+  </div>
+</section>

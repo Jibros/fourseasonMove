@@ -1,0 +1,69 @@
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow:
+      inset -1px -1px 0px rgba(0, 0, 0, 0.05),
+      inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  }
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+//mixin
+@mixin txt-blind {
+  text-indent: -9999em;
+  font-size: 0;
+  line-height: 0;
+}
+@mixin clear {
+  content: '';
+  display: block;
+  clear: both;
+}
+@mixin border {
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+@mixin txt-hd {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+}
+@mixin txt-hd2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+@mixin txt-hd3 {
+  @include txt-hd2;
+  -webkit-line-clamp: 3;
+}
+
+@mixin position($p: absolute, $t: null, $b: null, $l: null, $r: null, $z: null) {
+  position: $p;
+  top: $t;
+  bottom: $b;
+  left: $l;
+  right: $r;
+  z-index: $z;
+}

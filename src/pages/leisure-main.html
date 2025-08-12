@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <title>안양시 스마트도시정보 플랫폼 대시민 APP</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/js/vendor/swiper/swiper-bundle.min.css" />
+    <script defer src="../assets/js/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script defer type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body data-page-title="여가 안전">
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <div data-include-path="./layout/header-type-sub.html"></div>
+      <!-- // HEADER TYPE VIEW -->
+
+      <!-- CONTENTS -->
+      <div class="contents">
+        <section class="container container-leisure">
+          <!-- -->
+          <div class="current-weather">
+            <div class="weather-title">
+              <label>현위치</label>
+              <p class="tx-locate">광명시 일직동</p>
+            </div>
+            <div class="weather-temp">
+              <div class="icon"><img src="../assets/images/weather/weather-sunny.svg" alt="화창한 날씨" /></div>
+              <!-- <div class="icon"><img src="../assets/images/weather/weather-rain.svg" alt="비내리는 날씨" /></div>
+                <div class="icon"><img src="../assets/images/weather/weather-cloud.svg" alt="구름낀 날씨" /></div>
+                <div class="icon"><img src="../assets/images/weather/weather-sleet.svg" alt="눈과 비 혼합 날씨" /></div>
+                <div class="icon"><img src="../assets/images/weather/weather-snow.svg" alt="눈내리는 날씨" /></div> -->
+              <!-- <div class="icon"><img src="../assets/images/weather/weather-gale.svg" alt="강풍" /></div> -->
+              <div class="tx-temp">20°</div>
+            </div>
+            <div class="weather-dust">
+              <div class="dust">
+                <label>미세</label>
+                <p class="text-blue">맑음</p>
+                <p class="text-success">보통</p>
+                <p class="text-warning">나쁨</p>
+                <p class="text-danger">매우나쁨</p>
+              </div>
+              <div class="dust">
+                <label>초미세</label>
+                <p class="text-blue">맑음</p>
+                <p class="text-success">보통</p>
+                <p class="text-warning">나쁨</p>
+                <p class="text-danger">매우나쁨</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="leisure-menu">
+            <ul class="btn-lists">
+              <li>
+                <button type="button" class="btn btn-bg bg-walk" onclick="window.location.href='./leisure-walking-course.html'">
+                  <i class="ico mark ico-walk-mark"></i>
+                  <p class="txt">
+                    <span class="tx-name">산책로</span>
+                  </p>
+                  <i class="ico bg ico-walk-bg"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="btn btn-bg bg-hike" onclick="window.location.href='./leisure-walking-course.html'">
+                  <i class="ico mark ico-hike-mark"></i>
+                  <p class="txt">
+                    <span class="tx-name">등산로</span>
+                  </p>
+                  <i class="ico bg ico-hike-bg"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="btn btn-bg bg-bike" onclick="window.location.href='./leisure-walking-course.html'">
+                  <i class="ico mark ico-bike-mark"></i>
+                  <p class="txt">
+                    <span class="tx-name">자전거 도로</span>
+                  </p>
+                  <i class="ico bg ico-bike-bg"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <!-- // CONTENTS -->
+    </div>
+    <!-- // WRAPPER -->
+  </body>
+</html>
