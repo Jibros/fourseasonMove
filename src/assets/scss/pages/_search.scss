@@ -1,11 +1,11 @@
-$dustColor: ($secondary, $blue, $teal, $orange, $danger);
+$dustColor: (var(--secondary), var(--blue), var(--teal), var(--orange), var(--danger));
 $dustName: ('없음', '좋음', '보통', '나쁨', '매우');
 
 .header-map {
   display: block;
   @include position(fixed, 0, null, 0, 0, 200);
   width: 100%;
-  height: $searchKeywordHeight;
+  height: 5.2rem;
   padding: 1rem 1rem 0;
   background: none;
 
@@ -212,7 +212,7 @@ $dustName: ('없음', '좋음', '보통', '나쁨', '매우');
 
             @for $i from 1 to 6 {
               &.dust-#{$i} {
-                background: url($--image-url + 'map/bg-dust-#{$i}.svg') center no-repeat;
+                background: url('../../images/map/bg-dust-#{$i}.svg') center no-repeat;
                 background-size: 6.5rem;
               }
             }
@@ -271,7 +271,7 @@ $dustName: ('없음', '좋음', '보통', '나쁨', '매우');
     .keyword-head {
       position: sticky;
       top: 0;
-      z-index: $layout-zindex100;
+      z-index: 100;
       padding-top: 1rem;
       background-color: #fff;
 
@@ -323,7 +323,7 @@ $dustName: ('없음', '좋음', '보통', '나쁨', '매우');
       justify-content: space-between;
       // position: sticky;
       // top: calc($searchKeywordHeight - 1rem);
-      // z-index: $layout-zindex100;
+      // z-index: 100;
       padding-top: 1rem;
       background-color: #fff;
       padding: 0.62rem;

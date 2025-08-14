@@ -165,7 +165,7 @@
 
         a {
           text-decoration: underline;
-          color: $primary;
+          color: var(--primary);
         }
 
         .btn-link {
@@ -174,15 +174,15 @@
           gap: 0.62rem;
           margin: 0.25rem 0;
           padding: 0.25rem 0.6rem;
-          border: 1px solid $gray-400;
+          border: 1px solid var(--gray_40);
           border-radius: 0.25rem;
           font-size: 0.85rem;
           text-decoration: none;
-          color: $gray-700;
+          color: var(--gray_70);
 
           .ic {
             font-weight: 300;
-            color: $gray-500;
+            color: var(--gray_50);
           }
         }
       }

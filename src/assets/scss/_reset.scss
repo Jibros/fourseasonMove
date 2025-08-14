@@ -18,14 +18,10 @@
   word-break: break-word;
 }
 html {
-  // font-size: 10px;
-  font-size: $html-font-size;
+  font-size: 10px;
 }
 body {
-  font-family: $default-font-family;
-  font-weight: 400;
-  font-size: inherit;
-  color: #3a3a3e;
+  line-height: 1;
   @include scrollbar();
 }
 h1,

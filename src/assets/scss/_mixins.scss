@@ -67,3 +67,10 @@
   right: $r;
   z-index: $z;
 }
+
+@mixin iconVar($wid: 1, $hgt: 1) {
+  display: inline-block;
+  width: $wid + rem;
+  height: $hgt + rem;
+  @content;
+}

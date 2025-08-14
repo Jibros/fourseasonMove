@@ -1,200 +1,56 @@
 .tab-container {
-}
-.tab-nav {
-  position: sticky;
-  top: $headerHeight;
-  z-index: $layout-zindex200;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  background-color: #fff;
+  .tab-nav {
+    position: sticky;
+    top: $headerHeight;
+    height: $headerHeight; // 5.6rem
+    z-index: 200;
+    background-color: #fff;
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    &::after {
-      content: '';
-      border-bottom: 1px solid #1e1e1e;
-      @include position($b: 0, $l: 0, $r: 0, $z: 1);
-    }
-    li {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
       width: 100%;
       height: 100%;
 
-      .btn {
-        position: relative;
-        width: 100%;
-        min-height: 2.375rem;
-        padding: 0.62rem 0;
-        font-weight: 600;
-        font-size: 0.875rem;
-        color: #373737;
-        text-align: center;
-        line-height: 1.25rem;
-        background-color: #fff;
-        border-radius: 0.3125rem 0.3125rem 0 0;
-        border: 1px solid transparent;
-
-        &.active {
-          font-weight: 600;
-          color: #1e1e1e;
-          border-color: #1e1e1e;
-          border-bottom: 0;
-
-          &::after {
-            content: '';
-            @include position($b: -2px, $l: 0, $r: 0, $z: 10);
-            border-bottom: 4px solid #fff;
-          }
-        }
-      }
-    }
-  }
-
-  // 메인 탭만 스타일 별도 지정 (3/18)
-  &.tab-nav-main {
-    ul {
-      &::after {
-        border-bottom: 3px solid $cyan;
-      }
-
-      @for $i from 1 through 3 {
-        &.colored-#{$i} {
-          $color: if($i == 1, #b25cf9, if($i == 2, #fe42a6, #fc8d2b));
-
-          &::after {
-            border-bottom-color: $color;
-          }
-          .btn.active {
-            background-color: $color;
-            &::after {
-              border-bottom-color: $color;
-            }
-          }
-        }
-      }
-      li {
-        .btn {
-          border: 0;
-
-          &.active {
-            color: $white;
-            background-color: $cyan;
-
-            &::after {
-              content: '';
-              @include position($b: 0, $l: 0, $r: 0, $z: 10);
-              border-bottom: 3px solid $cyan;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-.tab-contents {
-  .tab-pane {
-    display: none;
-
-    &.active {
-      display: block;
-    }
-  }
-}
-
-// 탭 이하 버튼 목록
-.btn-lists {
-  li {
-    position: relative;
-
-    &::after {
-      content: '';
-      @include position($b: 0, $l: 0, $r: 0, $z: 1);
-      border-bottom: 1px solid #efefef;
-    }
-    &.no-border::after {
-      border-bottom: 0;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.88rem;
-      position: relative;
-      width: 100%;
-      padding: 1.25rem;
-
-      .ico:not(.bg) {
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-      .txt {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        gap: 0.31rem;
-        position: relative;
-        z-index: 2;
-        text-align: left;
-        padding-right: 1.25rem;
-
-        .tx-name {
-          font-weight: 700;
-          font-size: 0.875rem;
-          color: #1e1e1e;
-        }
-        .tx-sub {
-          font-weight: 500;
-          font-size: 0.75rem;
-          color: #626262;
-        }
-      }
-
       &::after {
         content: '';
-        display: inline-block;
-        @include position(absolute, $r: 1.25rem);
-        width: 0.6rem;
-        height: 1rem;
-        background: url($--image-url + 'icons/ico-chevron-right.svg') center no-repeat;
+        border-bottom: 1px solid #e5e5e5;
+        @include position($b: 0, $l: 0, $r: 0, $z: 1);
       }
+      li {
+        width: 100%;
+        height: 100%;
 
-      // 첫 번째 탭 BG & MARKER
-      &.btn-bg {
-        gap: 0.94rem;
-        margin-top: 1.25rem;
-        border-radius: 0.625rem;
+        .btn {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          font-weight: 400;
+          font-size: 1.6rem;
+          color: #737373;
+          text-align: center;
+          line-height: 1;
+          border-bottom: 2px solid transparent;
 
-        &::after {
-          display: none;
+          &.active {
+            font-weight: 600;
+            color: var(--gray_90);
+            border-color: var(--gray_90);
+          }
         }
-        &.bg-safety {
-          background-color: #c2edff;
-        }
-        &.bg-traffic {
-          background-color: #f1dfff;
-        }
-        &.bg-env {
-          background-color: #fde1f0;
-        }
-        &.bg-env2 {
-          margin-top: 0.62rem;
-          background-color: #fde1f0;
-        }
-        &.bg-life {
-          background-color: #ffe6d0;
-        }
-        .mark {
-          width: 2.5rem;
-          height: 2.5rem;
-        }
-        .bg {
-          @include position(absolute, null, 0, null, 1rem, 1);
-        }
+      }
+    }
+  }
+  .tab-contents {
+    height: 100%;
+    background-color: #f8f8f8;
+
+    .tab-pane {
+      display: none;
+
+      &.active {
+        display: block;
       }
     }
   }

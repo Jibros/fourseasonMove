@@ -4,9 +4,6 @@ import { arccodion } from './_arccodion.js'
 import spinner from './_spinner.js'
 
 $(function () {
-  initSwipers() // 교통 > 센터 개요 Swiper 실행
-  arccodion()
-  courseSwipers() // 산책로 > 산책 코스 추천
   spinner() // 로딩 스피너
 
   // tab & tab contents
@@ -37,43 +34,4 @@ $(function () {
       $('html, body').animate({ scrollTop: posTop }, { duration: 500 })
     })
   }
-
-  // navTabs
-  const navBar = $('section.navbar')
-  const navBarItem = navBar.find('.nav-item')
-  navBarItem.on('click', function () {
-    console.log(this)
-  })
-  $.each(navBarItem, function (index, item) {
-    console.log(index, item)
-  })
-
-  // BTN : 상단 이동
-  const btnMoveTop = $('.bottom-page-utils .btn-top .btn')
-  if (btnMoveTop.length) {
-    btnMoveTop.on('click', scrollToTop)
-
-    scrollVisibility()
-    $(window).on('scroll', scrollVisibility)
-  }
-
-  // 상단 이동
-  function scrollToTop() {
-    $('html, body').animate({ scrollTop: 0 }, 200)
-  }
-  // 스크롤
-  function scrollVisibility() {
-    const _sTop = $(window).scrollTop()
-    if (_sTop > 50) {
-      btnMoveTop.fadeIn(200)
-    } else {
-      btnMoveTop.fadeOut(200)
-    }
-  }
-
-  // BTN TAP ACTIVE
-  $(document).on('click', '.tab-group .btn-tab', function () {
-    $(this).siblings('.btn-tab').removeClass('active')
-    $(this).addClass('active')
-  })
 })

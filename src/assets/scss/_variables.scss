@@ -1,130 +1,269 @@
-// utils/_variables.scss
+:root {
+  // PRIMARY COLOR
+  --primary_5: #eaf0ff;
+  --primary_10: #d1dfff;
+  --primary_20: #a3bfff;
+  --primary_30: #759fff;
+  --primary_40: #477eff;
+  --primary_50: #1a5eff;
+  --primary_60: #0046eb;
+  --primary_70: #0039bd;
+  --primary_80: #002b8f;
+  --primary_90: #001d61;
 
-$text-color: #333;
-$background-color: #fff;
-$background-color-aside: #343a40;
+  --primary: var(--primary_60);
+  --secondary: var(--gray_20);
 
-$--image-url: '../images/';
-$default-font-family:
-  'Pretendard',
-  -apple-system,
-  BlinkMacSystemFont,
-  system-ui,
-  Roboto,
-  'Segoe UI',
-  'Apple SD Gothic Neo',
-  'Noto Sans KR',
-  'Malgun Gothic',
-  'Apple Color Emoji',
-  'Segoe UI Emoji',
-  'Segoe UI Symbol',
-  sans-serif;
-$font-messapia: 'Messapia', $default-font-family;
-$font-monospace: monospace, 'Courier New', sans-serif;
+  // COMMON BG COLOR
+  --bg-common: var(--gray_120);
+  --bg-gnb: #1e1e1e;
+  --bg-gnb_active: #121110;
+  --bg-card: #1e1e1e;
+  --bg-lnb: #0a0908;
+  --bg-lnb_active: #1e1e1e;
+  --bg-detail: #1e1e1e;
+  --bg-detail-box: #2e2e2e;
+  --bg-detail_active: #141d2a;
+  --bg-modal: #050505;
+  --bg-modal-box: #1e1e1e;
+  --bg-modal-card: #162439;
+  --bg-modal-table: #141d2a;
+  --bg-modal-input: #141d2a;
 
-$default-border-radius: 0.63rem;
+  // TABLE COLOR
+  --bg-tb: #141d2a;
+  --bg-tb-head: #0b2a1b;
+  --bg-tb_active: #0d141d;
 
-$layout-zindex100: 100;
-$layout-zindex200: 200;
-$layout-zindex300: 300;
-$layout-zindex400: 400;
-$layout-zindex500: 500;
+  // PRIMARY LEGEND COLOR
+  --map-legend_10: #fff0d4;
+  --map-legend_20: #ffe6b3;
+  --map-legend_30: #f6c92a;
+  --map-legend_40: #f5b326;
+  --map-legend_50: #f5a100;
+  --map-legend_60: #f07d02;
+  --map-legend_70: #f05302;
+  --map-legend_80: #d84801;
+  --map-legend_90: #ba3d00;
+  --map-legend_100: #641e00;
 
-$headerHeight: 3.125rem;
-$bottomNavHeight: 3.75rem;
-$searchKeywordHeight: 5.375rem;
-$bsheetMaxHeight: calc(100vh - $bottomNavHeight - $searchKeywordHeight);
-$keywordListHeight: calc(100vh - $bottomNavHeight - $searchKeywordHeight - 2.5rem);
+  --chart-legend_10: #ffeeee;
+  --chart-legend_20: #edaaa4;
+  --chart-legend_30: #d09a80;
+  --chart-legend_40: #edd2a4;
+  --chart-legend_50: #9ac7a8;
+  --chart-legend_60: #b5e2fa;
+  --chart-legend_70: #424f7b;
+  --chart-legend_80: #a8a7ee;
+  --chart-legend_90: #b88db7;
+  --chart-legend_100: #77494f;
 
-// COLOR
-$white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
-$blue: #0089eb !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #d63384 !default;
-$red: #f36 !default;
-$orange: #ff6219 !default;
-$yellow: #ff8c00 !default;
-$green: #15b100 !default;
-$teal: #15b100 !default;
-$cyan: #2ab1ec !default;
-$black: #000 !default;
-$white: #fff !default;
-$life: #fc8d2b;
+  --white: #ffffff;
+  --black: #000000;
 
-$colors: (
-  'blue': $blue,
-  'indigo': $indigo,
-  'purple': $purple,
-  'pink': $pink,
-  'red': $red,
-  'orange': $orange,
-  'yellow': $yellow,
-  'green': $green,
-  'teal': $teal,
-  'cyan': $cyan,
-  'black': $black,
-  'white': $white,
-  'gray': $gray-600,
-  'gray-dark': $gray-800,
-  'bad': $orange,
-);
+  --gray_5: #f8f8f8;
+  --gray_10: #f5f5f5;
+  --gray_20: #e5e5e5;
+  --gray_30: #d4d4d4;
+  --gray_40: #bbbbbb;
+  --gray_50: #737373;
+  --gray_60: #525252;
+  --gray_70: #404040;
+  --gray_80: #262626;
+  --gray_90: var(--gray_90);
 
-// theme-color-variables
-$primary: #2a41cd;
-$secondary: $gray-600;
-$success: #15b100;
-$info: #17a2b8;
-$warning: #ff8000;
-$danger: #f52d2d;
-$light: $gray-100;
-$dark: #343a40;
+  --red_5: #fef2f2;
+  --red_10: #fbdad5;
+  --red_20: #fecaca;
+  --red_30: #fca5a5;
+  --red_40: #f87171;
+  --red_50: #ef4444;
+  --red_60: #dc2626;
+  --red_70: #b91c1c;
+  --red_80: #991b1b;
+  --red_90: #7f1d1d;
+
+  --yellow_5: #fefce8;
+  --yellow_10: #fef9c3;
+  --yellow_20: #fef08a;
+  --yellow_30: #fde047;
+  --yellow_40: #facc15;
+  --yellow_50: #eab308;
+  --yellow_60: #ca8a04;
+  --yellow_70: #a16207;
+  --yellow_80: #854d0e;
+  --yellow_90: #713f12;
+
+  --green_5: #f0fdf4;
+  --green_10: #dcfce7;
+  --green_20: #bbf7d0;
+  --green_30: #86efac;
+  --green_40: #4ade80;
+  --green_50: #22c55e;
+  --green_60: #16a34a;
+  --green_70: #15803d;
+  --green_80: #166534;
+  --green_90: #14532d;
+
+  --border-line: #292b3c;
+  --badge-red: var(--red_60);
+  --badge-gray: #363636;
+  --badge-green: var(--green_50);
+  --badge-orange: var(--orange_40);
+}
 
 $theme-colors: (
-  'primary': $primary,
-  'secondary': $secondary,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'light': $light,
-  'dark': $dark,
-  'reject': $gray-900,
-  'wating': $yellow,
-  'blue': $blue,
+  'white': #ffffff,
+  'black': #000000,
+  'success': #00aa4d,
+  'danger': #e02c10,
+  'cyan': var(--cyan),
+  'mint': var(--mint),
+  'purple': var(--purple),
+  'sky-blue': var(--sky-blue),
+  'primary': var(--primary),
 );
 
-.tx-normal {
-  color: $green;
-}
-.tx-bad {
-  color: $orange;
-}
-.tx-bad-very {
-  color: $danger;
+// 테마 색상 접근 함수
+@function theme-color($color-name) {
+  @if map-has-key($theme-colors, $color-name) {
+    @return map-get($theme-colors, $color-name);
+  }
+
+  @return null;
 }
 
-//rem계산
-$html-font-size: 16px;
-@function stripUnit($value) {
-  @return calc($value / ($value * 0 + 1px));
-}
-@function rem($pxValue) {
-  @return #{calc(stripUnit($pxValue) / stripUnit($html-font-size))}rem;
+// 텍스트 색상 Mixin
+@mixin text-color($color-name) {
+  color: theme-color($color-name) !important;
 }
 
-.img-view {
-  width: 100%;
-  height: auto;
-  vertical-align: top;
+// 텍스트 색상 클래스 생성
+@each $name, $value in $theme-colors {
+  // @if $name == 'cyan' or $name == 'mint' or $name == 'purple' or $name == 'sky-blue' or $name == 'blue' {
+  .text-#{$name} {
+    @include text-color($name);
+  }
+  // }
+}
+
+.bg-deep-blue {
+  background-color: var(--deep-blue) !important;
+}
+
+.bg-deep-blue1 {
+  background-color: var(--deep-blue1) !important;
+}
+
+.bg-deep-blue2 {
+  background-color: var(--deep-blue2) !important;
+}
+
+.bg-deep-blue3 {
+  background-color: var(--deep-blue3) !important;
+}
+
+.bg-deep-blue4 {
+  background-color: var(--deep-blue4) !important;
+}
+
+.bg-deep-blue5 {
+  background-color: var(--deep-blue5) !important;
+}
+
+.bg-deep-blue6 {
+  background-color: var(--deep-blue6) !important;
+}
+
+.bg-deep-blue7 {
+  background-color: var(--deep-blue7) !important;
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue) !important;
+}
+
+.bg-light-blue2 {
+  background-color: var(--light-blue2) !important;
+}
+
+.bg-deep-navy {
+  background-color: var(--deep-navy) !important;
+}
+
+.bg-deep-navy1 {
+  background-color: var(--deep-navy1) !important;
+}
+
+.bg-deep-navy2 {
+  background-color: var(--deep-navy2) !important;
+}
+
+.bg-cyan {
+  background-color: var(--cyan) !important;
+}
+
+.bg-legend1 {
+  background-color: var(--map-legend_10) !important;
+}
+.bg-legend2 {
+  background-color: var(--map-legend_20) !important;
+}
+.bg-legend3 {
+  background-color: var(--map-legend_30) !important;
+}
+.bg-legend4 {
+  background-color: var(--map-legend_40) !important;
+}
+.bg-legend5 {
+  background-color: var(--map-legend_50) !important;
+}
+.bg-legend6 {
+  background-color: var(--map-legend_60) !important;
+}
+.bg-legend7 {
+  background-color: var(--map-legend_70) !important;
+}
+.bg-legend8 {
+  background-color: var(--map-legend_80) !important;
+}
+.bg-legend9 {
+  background-color: var(--map-legend_90) !important;
+}
+.bg-legend10 {
+  background-color: var(--map-legend_100) !important;
+}
+
+.red {
+  background-color: var(--badge-red);
+}
+
+.green {
+  background-color: var(--badge-green);
+}
+
+.gray {
+  background-color: var(--badge-gray);
+}
+.orange {
+  background-color: var(--badge-orange);
+}
+
+.light_mode {
+  --white: #000000;
+  --gray_0: #212121;
+  --gray_5: #333333;
+  --gray_10: #444444;
+  --gray_20: #545454;
+  --gray_30: #646464;
+  --gray_40: #888888;
+  --gray_50: #9c9c9c;
+  --gray_60: #9c9c9c;
+  --gray_70: #b1b1b1;
+  --gray_80: #c9c9c9;
+  --gray_90: #e2e2e2;
+  --gray_100: #eeeeee;
+  --gray_110: #fafafa;
+  --gray_120: #ffffff;
+  --black: #ffffff;
 }

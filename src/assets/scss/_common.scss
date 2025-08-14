@@ -10,6 +10,14 @@
   line-height: 1;
 }
 
+.ico {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 0;
+  text-indent: -9999px;
+}
+
 // SWIPER CUSTOM
 .swiper {
   border-radius: 0.625rem;
@@ -100,7 +108,7 @@
   border-radius: 6.25rem;
   font-weight: 600;
   font-size: 0.625rem;
-  color: $white;
+  color: var(--white);
   background-color: #1e1e1e;
 
   &-success {
@@ -135,12 +143,4 @@
 }
 .div-line {
   @include divLineHr();
-}
-
-// 스크롤 영역
-.scroll-body {
-  overflow: hidden;
-  overflow-y: auto;
-  max-height: calc($bsheetMaxHeight - 50vh);
-  @include scrollbar();
 }

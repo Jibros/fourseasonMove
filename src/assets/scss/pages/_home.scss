@@ -1,3 +1,188 @@
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.4rem 1.6rem;
+
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    line-height: 2.2rem;
+
+    .filter-tit {
+      flex-shrink: 0;
+      width: 6rem;
+      font-size: 1.4rem;
+      color: var(--gray_90);
+      line-height: 100%;
+    }
+
+    .filter-info {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      line-height: 100%;
+      flex-basis: calc(100% - 6rem - 1.6rem);
+
+      .filter-select {
+        flex-basis: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        .ico-location {
+          position: relative;
+          top: -0.2rem;
+          @include iconVar(2, 2) {
+            background: url('../images/icons/ico-marker.svg') center no-repeat;
+            background-size: contain;
+          }
+        }
+        .ico-calendar {
+          position: relative;
+          top: -0.2rem;
+          @include iconVar(2, 2) {
+            background: url('../images/icons/ico-calendar.svg') center no-repeat;
+            background-size: contain;
+          }
+        }
+
+        .tx-location {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-weight: 700;
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+          vertical-align: middle;
+
+          &::after {
+            content: '';
+            position: relative;
+            top: -0.2rem;
+            vertical-align: middle;
+            @include iconVar(2, 2) {
+              background: url('../images/icons/ico-arrow-down.svg') center no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+      }
+
+      > .btn {
+        flex-basis: 2.4rem;
+
+        .ico-filter {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/icons/ico-filter.svg') center no-repeat;
+            background-size: contain;
+          }
+        }
+        .ico-change {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/icons/ico-change.svg') center no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+
+      .move-type-list {
+        overflow: hidden;
+        overflow-x: auto;
+        width: calc(100vw - 9.2rem);
+        padding-right: 1.6rem;
+        white-space: nowrap;
+
+        .btn-item {
+          display: inline-block;
+          padding: 0.8rem 1.2rem;
+          height: 3.6rem;
+          border: 1px solid #d4d4d4;
+          border-radius: 3.6rem;
+          font-size: 1.4rem;
+          color: #737373;
+
+          &.active {
+            border-color: var(--gray_90);
+            font-weight: 600;
+            color: var(--gray_90);
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  flex-grow: 0;
+  position: relative;
+  width: 100%;
+
+  &-toggle {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 1rem 4rem 1rem 1.2rem;
+    border-radius: 0.4rem;
+    border: 1px solid #d4d4d4;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2rem;
+    vertical-align: middle;
+    text-align: left;
+    min-width: 0; // flex item에서 text-overflow가 제대로 작동하도록 추가
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.6rem;
+      margin-top: -1.2rem;
+      @include iconVar(2.4, 2.4) {
+        background: url('../images/icons/ico-arrow-down.svg') center no-repeat;
+        background-size: contain;
+      }
+    }
+
+    &:hover,
+    &.active {
+      border-color: var(--primary);
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  min-width: 10rem;
+  width: 100%;
+  margin-top: 0.6rem;
+  font-size: 1.6rem;
+  z-index: 1000;
+  border: 1px solid var(--gray_20);
+  border-radius: 0.4rem;
+  background-color: var(--white);
+
+  > li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1.2rem;
+  }
+  .dropdown-item {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+
+    &:hover {
+      background-color: #eff6ff;
+    }
+  }
+}
+
 // 홈 상단 배너
 .container-banner-top {
   display: flex;
@@ -6,7 +191,7 @@
   width: 100%;
   min-height: 7.5rem;
   padding: 0 !important;
-  background: url($--image-url + '/banner/banner-home-center.svg') center no-repeat;
+  background: url('../../images//banner/banner-home-center.svg') center no-repeat;
   background-size: cover;
 
   .banner-inner {
@@ -77,11 +262,11 @@
         border-radius: 0.625rem;
 
         &.btn-ex {
-          background: url($--image-url + '/banner/banner-home-ex.png') center no-repeat;
+          background: url('../../images//banner/banner-home-ex.png') center no-repeat;
           background-size: cover;
         }
         &.btn-bus {
-          background: url($--image-url + '/banner/banner-home-busreserv.png') center no-repeat;
+          background: url('../../images//banner/banner-home-busreserv.png') center no-repeat;
           background-size: cover;
         }
 
@@ -103,7 +288,7 @@
     //   &::before {
     //     content: '';
     //     @include position(absolute, 0, 0, 0, 0, -1);
-    //     border-radius: $default-border-radius;
+    //     border-radius: 0.4rem;
     //     border: 1px solid #ededed;
     //   }
 
@@ -148,7 +333,7 @@
         width: 100%;
         height: 100%;
         padding: 1.25rem;
-        border-radius: $default-border-radius;
+        border-radius: 0.4rem;
         background-color: #f4f4f4;
 
         // 기상
@@ -196,7 +381,7 @@
           .message {
             margin-top: 0.62rem;
             padding: 0.62rem;
-            border-radius: $default-border-radius;
+            border-radius: 0.4rem;
             color: #1e1e1e;
             text-align: center;
             font-weight: 600;
@@ -320,7 +505,7 @@
       width: 100%;
       height: 100%;
       padding: 0.38rem 1.25rem;
-      border-radius: $default-border-radius;
+      border-radius: 0.4rem;
       background-color: #f4f4f4;
 
       .summary {
@@ -365,7 +550,7 @@
       .message {
         margin-top: 0.62rem;
         padding: 0.62rem;
-        border-radius: $default-border-radius;
+        border-radius: 0.4rem;
         color: #1e1e1e;
         text-align: center;
         font-weight: 600;
