@@ -67,72 +67,10 @@ $(document).ready(() => {
     $('body').css({ overflow: '' })
   }
 
-  // 영역 노출/미노출 토글 함수
-  const toggleContets = (showSelector, hideSelector) => {
-    $(hideSelector).removeClass('is-shown').addClass('is-hidden')
-    $(showSelector).removeClass('is-hidden').addClass('is-shown')
-  }
-
-  // 검색 키워드 버튼 클릭 시 동작
-  $(document).on('click', '.btn-key', function () {
-    console.log('키워드 클릭')
-    modalClose('.modal-keyword')
-    toggleContets('.bs-search-result', '.bs-main')
-    $('.header-map').addClass('is-hidden')
-    $('.header-search').removeClass('is-hidden')
-  })
-
-  // 검색 영역 닫기
-  $(document).on('click', '.btn-back-search', function () {
-    toggleContets('.bs-main', '.bs-search-result')
-    $('.header-map').removeClass('is-hidden')
-    $('.header-search').addClass('is-hidden')
-  })
-
-  // SOS, 알람, 네비게이션 버튼 액션
-  function headerUtilClick() {
-    $('.header-utils .btn').on('click', function () {
-      const target = $(this).data('target')
-
-      if (target !== undefined) {
-        if (target === 'view-alarm') {
-          alert('안심귀가 APP 실행')
-        } else {
-          window.location.href = `./${target}.html`
-        }
-      }
-    })
-  }
-
-  // 페이지 타이틀 설정
-  function pageTitle() {
-    const param = $('body').data('page-title') || '스마트 안양'
-    let mainHeader = param === '스마트 안양'
-
-    if (!mainHeader) {
-      $('#headerTitle').text(param)
-    } else {
-      $('#headerTitle').addClass('main-tit').html(`스마트 안양 <strong>도</strong>시를 <strong>담</strong>다`)
-    }
-  }
-
-  // 네비게이션 페이지 이동
-  function navbarClick() {
-    $('.navbar .nav-item').on('click', function () {
-      const target = $(this).data('target')
-      const url =
-        target === 'home' ? './index.html' : target === 'admin' ? `./index-${target}.html` : `./${target}.html`
-      window.location.href = url
-    })
-  }
-
   // include 페이지 스크립트 실행
   async function includePageScript() {
     return new Promise((resolve) => {
       setTimeout(() => {
-        headerUtilClick()
-        pageTitle()
-        navbarClick()
         modal()
         resolve()
       }, 300)

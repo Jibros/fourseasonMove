@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>사계절 이사</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body>
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <!-- <div data-include-path="./layout/header-sub.html"></div> -->
+      <!-- // HEADER TYPE VIEW -->
+
+      <header class="header is-sub">
+        <h1 class="header-title">아이디 찾기</h1>
+        <div class="header-utils">
+          <button type="button" class="btn">
+            <i class="ico ico-arrow-back">뒤로</i>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTAINER -->
+      <section class="container container-find">
+        <!-- -->
+        <form method="post">
+          <div class="form-wrap">
+            <div class="div-block">
+              <div class="txt-input">
+                <label for="userNumber">회사명 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="userNumber" class="ipt-text" placeholder="회사명을 입력하세요" />
+
+                  <p class="tx_msg">※ 3~10자 사이로 입력하세요.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">성함 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="userNumber" class="ipt-text" placeholder="이름을 입력하세요" />
+
+                  <p class="tx_msg">※ 3~10자 사이로 입력하세요.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">휴대폰 번호인증 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="휴대폰 번호를 입력하세요 (‘-’ 없이)" />
+                  <div class="input-util">
+                    <button type="button" class="btn btn-check">전송</button>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>전화번호 형식이 올바르지 않습니다.</p>
+                </div>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="4자리 번호를 입력하세요" />
+                  <div class="input-util">
+                    <button type="button" class="btn btn-check">확인</button>
+                  </div>
+                  <p class="tx_msg is-success"><i class="ico ico-success"></i>승인되었습니다.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">이메일주소 인증 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="이메일주소를 입력하세요" />
+                  <div class="input-util">
+                    <button type="button" class="btn btn-check">전송</button>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>이메일 형식이 올바르지 않습니다.</p>
+                </div>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="4자리 번호를 입력하세요" />
+                  <div class="input-util">
+                    <button type="button" class="btn btn-check">확인</button>
+                  </div>
+                  <p class="tx_msg is-success"><i class="ico ico-success"></i>승인되었습니다.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">우편물 수령 주소 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="우편물을 받아 볼수 있는 주소를 입력하세요" />
+                </div>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="상세주소를 입력하세요" />
+                </div>
+              </div>
+            </div>
+
+            <div class="div-block">
+              <div class="service-agree">
+                <div class="all-agree">
+                  <label class="inp">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    전체 동의
+                  </label>
+                </div>
+                <ul class="agree-list">
+                  <li>
+                    <label class="inp">
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                      서비스 이용약관(필수)
+                    </label>
+                    <button type="button" class="btn"><i class="ico ico-arrow-right">&gt;</i></button>
+                  </li>
+                  <li>
+                    <label class="inp">
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                      개인정보수집 및 이용 동의(필수)
+                    </label>
+                    <button type="button" class="btn"><i class="ico ico-arrow-right">&gt;</i></button>
+                  </li>
+                  <li>
+                    <label class="inp">
+                      <input type="checkbox" />
+                      <span class="checkmark"></span>
+                      사계절이사 어플 운영 규정 준수 동의(필수)
+                    </label>
+                    <button type="button" class="btn"><i class="ico ico-arrow-right">&gt;</i></button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn">회원가입</button>
+            <!-- <button type="submit" class="btn is-active">회원가입</button> -->
+          </div>
+        </form>
+      </section>
+      <!-- //CONTAINER -->
+    </div>
+    <!-- // WRAPPER -->
+  </body>
+</html>

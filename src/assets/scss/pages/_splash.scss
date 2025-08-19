@@ -1,0 +1,55 @@
+.splash-wrap {
+  h1.login-title {
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--gray_90);
+  }
+
+  h1.splash-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    .ico {
+      &.ico-logo {
+        @include iconVar(21, 3) {
+          background: url('../images/brand-logo-inc.svg') center no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+
+    .tx-tel {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      color: var(--gray_70);
+
+      .ico {
+        position: relative;
+        top: -2px;
+
+        &.ico-phone {
+          @include iconVar(1.6, 1.6) {
+            background: url('../images/icons/ico-phone.svg') center no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+    }
+  }
+
+  .tx-version {
+    position: fixed;
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    font-size: 1.4rem;
+    color: var(--gray_50);
+    text-align: center;
+  }
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>사계절 이사</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body>
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <!-- <div data-include-path="./layout/header-sub.html"></div> -->
+      <!-- // HEADER TYPE VIEW -->
+
+      <header class="header is-sub">
+        <h1 class="header-title">아이디 찾기</h1>
+        <div class="header-utils">
+          <button type="button" class="btn">
+            <i class="ico ico-arrow-back">뒤로</i>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTAINER -->
+      <section class="container container-find">
+        <!-- -->
+        <form method="post">
+          <div class="form-wrap">
+            <div class="div-block">
+              <div class="txt-input">
+                <label for="userNumber">가입한 휴대폰 번호 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="userNumber" class="ipt-text" placeholder="‘-’없이 입력하세요" />
+                  <div class="input-util">
+                    <button type="button" class="btn"><i class="ico ico-remove">X</i></button>
+                    <!-- <button type="button" class="btn is-on"><i class="ico ico-remove">X</i></button> -->
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>등록된 휴대폰번호가 아닙니다.</p>
+                </div>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="인증번호" />
+                  <div class="input-util">
+                    <p class="tx-time">02:59</p>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>인증번호가 일치하지 않습니다.</p>
+
+                  <button type="button" class="btn-resend">인증번호 다시 받기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn">인증번호 받기</button>
+            <!-- <button type="submit" class="btn is-active">인증번호 받기</button> -->
+            <!-- <button type="submit" class="btn">확인</button> -->
+            <!-- <button type="submit" class="btn is-active">확인</button> -->
+          </div>
+        </form>
+      </section>
+      <!-- //CONTAINER -->
+    </div>
+    <!-- // WRAPPER -->
+  </body>
+</html>

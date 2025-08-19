@@ -1,6 +1,3 @@
-import { initSwipers } from './_swiper.js'
-import { courseSwipers } from './_courseSwiper.js'
-import { arccodion } from './_arccodion.js'
 import spinner from './_spinner.js'
 
 $(function () {

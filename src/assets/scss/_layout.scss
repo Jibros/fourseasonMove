@@ -20,8 +20,9 @@ html {
 .wrapper {
   display: flex;
   flex-direction: column;
-  position: relative;
-  height: 100%;
+  position: sticky;
+  top: 0;
+  min-height: 100%;
 
   // map 포함된 wrapper
   &-map {
@@ -49,15 +50,38 @@ html {
   padding: 0 1.6rem;
   height: $headerHeight;
   border-bottom: 1px solid var(--secondary);
+  background-color: var(--white);
 
+  &.is-sub {
+    justify-content: center;
+    flex-direction: row-reverse;
+    border-bottom: 0;
+
+    .header-title {
+      justify-content: center;
+    }
+
+    .header-utils {
+      position: absolute;
+      top: 1.6rem;
+      left: 1.6rem;
+    }
+  }
   &.is-hidden {
     display: none;
   }
   &-title {
+    display: flex;
+    align-items: center;
     padding: 0;
-    font-size: 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1;
+    vertical-align: middle;
+    color: var(--gray_90);
 
     .brand-logo {
+      font-size: 0;
       @include iconVar(8, 1.5) {
         background: url('../images/brand-logo.svg') center no-repeat;
         background-size: contain;
@@ -120,6 +144,11 @@ html {
             background: url('../images/icons/ico-menu.svg') center no-repeat;
           }
         }
+        &-arrow-back {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/icons/ico-arrow-back.svg') center no-repeat;
+          }
+        }
       }
     }
   }
@@ -173,95 +202,135 @@ html {
   }
 }
 
+// 컨테이너 기본형
 .container {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  min-height: calc(100% - $headerHeight - $bottomNavHeight);
+  flex-grow: 1;
+  min-height: calc(100% - $headerHeight);
   margin-top: $headerHeight;
   padding: 0 0 $bottomNavHeight;
 }
 
-.navbar {
+// 컨테이너 하단 버튼형
+.container-btn {
+  // min-height: calc(100% - $headerHeight - 3.6rem);
+
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-bottom: 8.8rem;
+
+  .inner {
+    max-height: 100%;
+  }
+}
+
+// 컨테이너 중앙형
+.container-float {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  margin-top: 0;
+  padding: 1.6rem;
+}
+
+.footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 0 1.6rem;
   @include position(fixed, $b: 0, $l: 0, $r: 0, $z: 300);
-  height: $bottomNavHeight;
-  background-color: #fff;
+  min-height: $bottomNavHeight;
+  background-color: var(--white);
 
-  .nav-item {
+  .navbar {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    flex-basis: auto;
-    flex-grow: 1;
     align-items: center;
-    height: 100%;
-    gap: 0.4rem;
+    justify-content: space-around;
+    width: calc(100% + 3.2rem);
+    margin: 0 -1.6rem;
+    height: $bottomNavHeight;
+    background-color: #fff;
 
-    .ico {
-      display: inline-block;
-      width: 2.4rem;
-      height: 2.4rem;
-
-      &-nav-1 {
-        @include iconVar(2.4, 2.4) {
-          background: url('../images/nav/nav-01-off.svg') center no-repeat;
-        }
-      }
-      &-nav-2 {
-        @include iconVar(2.4, 2.4) {
-          background: url('../images/nav/nav-02-off.svg') center no-repeat;
-        }
-      }
-      &-nav-3 {
-        @include iconVar(2.4, 2.4) {
-          background: url('../images/nav/nav-03-off.svg') center no-repeat;
-        }
-      }
-      &-nav-4 {
-        @include iconVar(2.4, 2.4) {
-          background: url('../images/nav/nav-04-off.svg') center no-repeat;
-        }
-      }
-    }
-
-    .txt {
-      display: inline-block;
-      width: 100%;
-      font-weight: 600;
-      font-size: 1.2rem;
-      line-height: 1;
-      color: #9d9d9d;
+    .nav-item {
+      display: flex;
+      flex-direction: column;
       text-align: center;
-    }
+      justify-content: center;
+      flex-basis: auto;
+      flex-grow: 1;
+      align-items: center;
+      height: 100%;
+      gap: 0.4rem;
 
-    &.active .ico-nav-1 {
-      @include iconVar(2.4, 2.4) {
-        background: url('../images/nav/nav-01-on.svg') center no-repeat;
-      }
-    }
-    &.active .ico-nav-2 {
-      @include iconVar(2.4, 2.4) {
-        background: url('../images/nav/nav-02-on.svg') center no-repeat;
-      }
-    }
-    &.active .ico-nav-3 {
-      @include iconVar(2.4, 2.4) {
-        background: url('../images/nav/nav-03-on.svg') center no-repeat;
-      }
-    }
-    &.active .ico-nav-4 {
-      @include iconVar(2.4, 2.4) {
-        background: url('../images/nav/nav-04-on.svg') center no-repeat;
-      }
-    }
+      .ico {
+        display: inline-block;
+        width: 2.4rem;
+        height: 2.4rem;
 
-    &.active .txt {
-      font-weight: 700;
-      color: #1e1e1e;
+        &-nav-1 {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/nav/nav-01-off.svg') center no-repeat;
+          }
+        }
+        &-nav-2 {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/nav/nav-02-off.svg') center no-repeat;
+          }
+        }
+        &-nav-3 {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/nav/nav-03-off.svg') center no-repeat;
+          }
+        }
+        &-nav-4 {
+          @include iconVar(2.4, 2.4) {
+            background: url('../images/nav/nav-04-off.svg') center no-repeat;
+          }
+        }
+      }
+
+      .txt {
+        display: inline-block;
+        width: 100%;
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 1;
+        color: #9d9d9d;
+        text-align: center;
+      }
+
+      &.active .ico-nav-1 {
+        @include iconVar(2.4, 2.4) {
+          background: url('../images/nav/nav-01-on.svg') center no-repeat;
+        }
+      }
+      &.active .ico-nav-2 {
+        @include iconVar(2.4, 2.4) {
+          background: url('../images/nav/nav-02-on.svg') center no-repeat;
+        }
+      }
+      &.active .ico-nav-3 {
+        @include iconVar(2.4, 2.4) {
+          background: url('../images/nav/nav-03-on.svg') center no-repeat;
+        }
+      }
+      &.active .ico-nav-4 {
+        @include iconVar(2.4, 2.4) {
+          background: url('../images/nav/nav-04-on.svg') center no-repeat;
+        }
+      }
+
+      &.active .txt {
+        font-weight: 700;
+        color: #1e1e1e;
+      }
     }
+  }
+
+  .btn-group {
+    margin-bottom: 1.6rem;
   }
 }

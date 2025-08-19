@@ -11,7 +11,7 @@
   --primary_80: #002b8f;
   --primary_90: #001d61;
 
-  --primary: var(--primary_60);
+  --primary: var(--primary_50);
   --secondary: var(--gray_20);
 
   // COMMON BG COLOR
@@ -70,7 +70,7 @@
   --gray_60: #525252;
   --gray_70: #404040;
   --gray_80: #262626;
-  --gray_90: var(--gray_90);
+  --gray_90: #121212;
 
   --red_5: #fef2f2;
   --red_10: #fbdad5;
@@ -110,6 +110,14 @@
   --badge-gray: #363636;
   --badge-green: var(--green_50);
   --badge-orange: var(--orange_40);
+
+  --border-rad-0: 0;
+  --border-rad-2: 0.2rem;
+  --border-rad-4: 0.4rem;
+  --border-rad-8: 0.8rem;
+  --border-rad-12: 1.2rem;
+  --border-rad-16: 1.6rem;
+  --border-rad-100: 100%;
 }
 
 $theme-colors: (

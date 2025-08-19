@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+    <title>사계절 이사</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- jquery -->
+    <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+
+    <!-- 마크업 확인용 -->
+    <script type="text/javascript" src="../assets/js/include.js"></script>
+    <script defer type="module" src="../assets/js/common.js"></script>
+  </head>
+  <body>
+    <!-- WRAPPER -->
+    <div class="wrapper">
+      <!-- HEADER TYPE VIEW -->
+      <!-- <div data-include-path="./layout/header-sub.html"></div> -->
+      <!-- // HEADER TYPE VIEW -->
+
+      <header class="header is-sub">
+        <h1 class="header-title">아이디 찾기</h1>
+        <div class="header-utils">
+          <button type="button" class="btn">
+            <i class="ico ico-arrow-back">뒤로</i>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTAINER -->
+      <section class="container container-find">
+        <!-- -->
+        <form method="post">
+          <div class="form-wrap">
+            <div class="div-block">
+              <div class="txt-input">
+                <label for="userNumber">아이디 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="userNumber" class="ipt-text" placeholder="아이디 입력 (영문,숫자 4자 이상)" />
+                  <div class="input-util">
+                    <button type="button" class="btn btn-check">중복확인</button>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>아이디 형식이 아닙니다.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">비밀번호 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="비밀번호 입력 (6자 이상)" />
+                  <div class="input-util">
+                    <button type="button" class="btn"><i class="ico ico-eye">X</i></button>
+                    <button type="button" class="btn is-on"><i class="ico ico-eye">X</i></button>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>비밀번호 형식이 올바르지 않습니다.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">비밀번호 확인 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <input type="text" id="validNumber" class="ipt-text" placeholder="비밀번호 재입력" />
+                  <div class="input-util">
+                    <button type="button" class="btn"><i class="ico ico-eye">X</i></button>
+                    <button type="button" class="btn is-on"><i class="ico ico-eye">X</i></button>
+                  </div>
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>비밀번호가 다릅니다. 다시 확인하세요.</p>
+                </div>
+              </div>
+
+              <div class="txt-input">
+                <label for="userNumber">영업지역 선택 <sup>*</sup></label>
+
+                <div class="input-box">
+                  <button type="button" class="btn btn-location">영업지역 선택하기 <i class="ico ico-plus">+</i></button>
+
+                  <p class="tx_msg is-err"><i class="ico ico-error"></i>선택한 영업지역은 변경할 수 없습니다. <br />변경이 필요한 경우 고객센터로 문의 바랍니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn">다음</button>
+            <!-- <button type="submit" class="btn is-active">확인</button> -->
+          </div>
+        </form>
+      </section>
+      <!-- //CONTAINER -->
+    </div>
+    <!-- // WRAPPER -->
+  </body>
+</html>
