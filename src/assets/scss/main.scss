@@ -9,11 +9,7 @@
 @import 'layout', 'common';
 
 // Components
-@import './components/toggle', './components/icommon';
-@import './components/bottomsheet', './components/roundbtn', './components/tabs';
-@import './components/modal', './components/arccodion', './components/video';
-@import './components/flatpickr', './components/loader', './components/spinner';
+@import './components/tabs', './components/spinner';
 
 // Pages
-@import 'pages/splash', 'pages/login', 'pages/home', 'pages/view', 'pages/list', 'pages/search', 'pages/traffic',
-  'pages/admin';
+@import 'pages/home', 'pages/splash', 'pages/login';

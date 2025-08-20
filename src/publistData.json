@@ -1,14 +1,52 @@
 [
   {
     "mainMenu": "공통",
-    "subMenus": ["레이아웃", "아이콘"],
+    "subMenus": ["레이아웃", "TAB"],
     "smallMenus": ["-"],
-    "pageId": ["[ LAYOUT-001 ]", "[ ICON-001 ]"],
-    "links": ["./pages/default/layout.html", "./pages/components/modal.html"],
+    "pageId": ["[ LAYOUT-001 ]", "[ LAYOUT-002 ]", "[ TAB-001 ]"],
+    "links": [
+      "./pages/layout/container-default.html",
+      "./pages/layout/container-default-btn.html",
+      "./pages/components/tab.html"
+    ],
     "completionDate": "25.08",
     "status": "작업 중",
-    "updates": [
-      { "type": "", "content": "[25.08.12] First Commit" }
-    ]
+    "updates": [{ "type": "C", "content": "" }]
+  },
+  {
+    "mainMenu": "SPLASH",
+    "subMenus": ["SPLASH"],
+    "smallMenus": ["-"],
+    "pageId": ["[ SPLASH-001 ]"],
+    "links": ["./pages/splash.html"],
+    "completionDate": "25.08",
+    "status": "완료",
+    "updates": [{ "type": "C", "content": "" }]
+  },
+  {
+    "mainMenu": "LOGIN",
+    "subMenus": ["로그인", "아이디 찾기", "아이디 찾기 완료", "비밀번호 찾기", "비밀번호 재설정", "아이디 찾기"],
+    "smallMenus": ["-"],
+    "pageId": ["[ LOGIN-001 ]", "[ LOGIN-ID-001 ]", "[ LOGIN-ID-002 ]", "[ LOGIN-PW-001 ]", "[ LOGIN-PW-002 ]"],
+    "links": [
+      "./pages/login.html",
+      "./pages/find-id.html",
+      "./pages/find-id-comp.html",
+      "./pages/find-pw.html",
+      "./pages/find-pw-reset.html"
+    ],
+    "completionDate": "25.08",
+    "status": "완료",
+    "updates": [{ "type": "C", "content": "" }]
+  },
+  {
+    "mainMenu": "JOIN",
+    "subMenus": ["회원가입", "회원가입-2", "회원가입 영역", "비밀번호 찾기", "비밀번호 재설정", "아이디 찾기"],
+    "smallMenus": ["-"],
+    "pageId": ["[ JOIN-001 ]", "[ JOIN-002 ]", "[ JOIN-003 ]"],
+    "links": ["./pages/join.html", "./pages/join-next.html", "./pages/join-location.html"],
+    "completionDate": "25.08",
+    "status": "완료",
+    "updates": [{ "type": "C", "content": "" }]
   }
 ]

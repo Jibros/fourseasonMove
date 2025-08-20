@@ -21,62 +21,64 @@
     <div class="wrapper justify--center">
       <!-- CONTAINER -->
       <section class="container container-float">
-        <h1 class="login-title">로그인</h1>
+        <div class="login-wrap">
+          <h1 class="login-title">로그인</h1>
 
-        <!-- -->
-        <form method="post">
-          <div class="form-wrap">
-            <div class="div-block">
-              <div class="txt-input">
-                <label for="userID">아이디 <sup>*</sup></label>
+          <!-- -->
+          <form method="post">
+            <div class="form-wrap">
+              <div class="div-block">
+                <div class="txt-input">
+                  <label for="userID">아이디 <sup>*</sup></label>
 
-                <div class="input-box">
-                  <input type="text" id="userID" class="ipt-text" placeholder="아이디 입력" />
-                  <div class="input-util">
-                    <button type="button" class="btn"><i class="ico ico-remove">X</i></button>
-                    <!-- <button type="button" class="btn is-on"><i class="ico ico-remove">X</i></button> -->
-                    <button type="button" class="btn"><i class="ico ico-eye">on</i></button>
-                    <!-- <button type="button" class="btn is-on"><i class="ico ico-eye">off</i></button> -->
+                  <div class="input-box">
+                    <input type="text" id="userID" class="ipt-text" placeholder="아이디 입력" />
+                    <div class="input-util">
+                      <button type="button" class="btn"><i class="ico ico-remove">X</i></button>
+                      <!-- <button type="button" class="btn is-on"><i class="ico ico-remove">X</i></button> -->
+                      <button type="button" class="btn"><i class="ico ico-eye">on</i></button>
+                      <!-- <button type="button" class="btn is-on"><i class="ico ico-eye">off</i></button> -->
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="div-block">
-              <div class="txt-input">
-                <label for="PASSWORD">비밀번호 <sup>*</sup></label>
+              <div class="div-block">
+                <div class="txt-input">
+                  <label for="PASSWORD">비밀번호 <sup>*</sup></label>
 
-                <div class="input-box">
-                  <input type="password" id="PASSWORD" class="ipt-text" placeholder="비밀번호" />
+                  <div class="input-box">
+                    <input type="password" id="PASSWORD" class="ipt-text" placeholder="비밀번호" />
+                  </div>
                 </div>
+              </div>
+
+              <div class="div-block">
+                <label class="inp">
+                  <input type="checkbox" checked="checked" class="radio" />
+                  <span class="checkmark"></span>
+                  자동 로그인
+                </label>
               </div>
             </div>
 
-            <div class="div-block">
-              <label class="inp">
-                <input type="checkbox" checked="checked" class="radio" />
-                <span class="checkmark"></span>
-                자동 로그인
-              </label>
+            <div class="btn-group">
+              <button type="submit" class="btn is-active">로그인</button>
             </div>
-          </div>
 
-          <div class="btn-group">
-            <button type="submit" class="btn is-active">로그인</button>
-          </div>
-
-          <ul class="list-member">
-            <li>
-              <a href="#">회원가입</a>
-            </li>
-            <li>
-              <a href="#">아이디 찾기</a>
-            </li>
-            <li>
-              <a href="#">비밀번호 찾기</a>
-            </li>
-          </ul>
-        </form>
+            <ul class="list-member">
+              <li>
+                <a href="#">회원가입</a>
+              </li>
+              <li>
+                <a href="#">아이디 찾기</a>
+              </li>
+              <li>
+                <a href="#">비밀번호 찾기</a>
+              </li>
+            </ul>
+          </form>
+        </div>
       </section>
       <!-- //CONTAINER -->
     </div>

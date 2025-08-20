@@ -1,17 +1,17 @@
-.container-find {
-  overflow: auto;
-  min-height: calc(100% - $headerHeight);
-  padding-top: 2.4rem;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-}
-
-.container-find--comp {
+.login-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 1.6rem;
+  gap: 4rem;
+  width: 100%;
+  padding: 4rem 0;
+
+  h1.login-title {
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--gray_90);
+  }
 }
 
 .find-complete {
@@ -796,5 +796,14 @@
     font-size: 1.4rem;
     line-height: 140%;
     color: var(--gray_50);
+  }
+}
+
+@media screen and (max-width: 20rem) {
+  .tx-msg {
+    > br {
+      display: none;
+      height: 0;
+    }
   }
 }

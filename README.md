@@ -15,10 +15,10 @@
 
 # 모바일 해상도 및 대응
 
-- 해상도 대응 : 320px(최소) ~ 900px
-- base font size(html) : 16px / 1rem
+- 해상도 대응 : 320px(최소) ~
+- base font size(html) : 10px / 1rem
 - size units : rem 단위 사용
-- gutter : 1rem / 1.25rem
+- gutter : 1.6rem / 2.4rem
 
 # Class Naming Rules
 
@@ -68,11 +68,6 @@
 ---
 
 # SCSS (assets/scss)
-
-## /bootstrap
-
-> 부트스트랩 scss / custom bootstrap variable
-> 부투스트랩 아이콘은 CDN 참조 (용량이 커서 직접 관리하지 않음)
 
 ## /components
 

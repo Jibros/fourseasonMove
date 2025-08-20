@@ -236,6 +236,24 @@ html {
   padding: 1.6rem;
 }
 
+//
+.container-scroll {
+  overflow: auto;
+  min-height: calc(100% - $headerHeight);
+  padding-top: 2.4rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+// 헤더 + 세로 중앙
+.container-find--comp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.6rem;
+}
+
 .footer {
   display: flex;
   align-items: center;
