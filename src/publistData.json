@@ -41,7 +41,7 @@
   },
   {
     "mainMenu": "JOIN",
-    "subMenus": ["회원가입", "회원가입-2", "회원가입 영역", "비밀번호 찾기", "비밀번호 재설정", "아이디 찾기"],
+    "subMenus": ["회원가입", "회원가입-2", "회원가입 영역"],
     "smallMenus": ["-"],
     "pageId": ["[ JOIN-001 ]", "[ JOIN-002 ]", "[ JOIN-003 ]"],
     "links": ["./pages/join.html", "./pages/join-next.html", "./pages/join-location.html"],
